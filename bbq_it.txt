@@ -1,0 +1,579 @@
+--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local ProximityPromptService = game:GetService("ProximityPromptService")
+local RunService = game:GetService("RunService")
+local CoreGui = game:GetService("CoreGui")
+
+local player = Players.LocalPlayer
+
+-- == Configuration & States ==
+local Toggles = {
+    AutoCook = false,
+    AutoPlate = false,
+    AutoSell = false,
+    AutoBuy = false,
+    AutoBuyTotem = false,
+    StackExploit = false,
+    InstantPrompt = false
+}
+
+local StackAmount = 20 -- Default amount of totems to place at once
+
+local MeatOptions = {
+    "Raw Hotdog", "Raw Burger", "Raw Chicken", "Raw Salmon", 
+    "Raw Ribs", "Raw Prime Rib", "Raw Brisket", "Raw Lobtser Tail", "Raw Lobster Tail",
+    "Raw Bigfoot Filet", "Raw Dragon", "Raw Demon", "Raw Whole Unicorn"
+}
+
+local TotemOptions = {
+    "Gold Totem", "Salt and Pepper Totem", "Totem of Small Growth",
+    "Totem of Growth", "Totem of Great Growth", "Speed Totem", 
+    "Luck Totem", "Diamond Totem", "Ruby Totem"
+}
+
+-- Dynamically fetch all meats & totems from the game
+pcall(function()
+    if ReplicatedStorage:FindFirstChild("Meats") then
+        for _, rarity in ipairs(ReplicatedStorage.Meats:GetChildren()) do
+            for _, tool in ipairs(rarity:GetChildren()) do
+                if tool:IsA("Tool") and not table.find(MeatOptions, tool.Name) then table.insert(MeatOptions, tool.Name) end
+            end
+        end
+    end
+    if ReplicatedStorage:FindFirstChild("Totems") then
+        for _, t in ipairs(ReplicatedStorage.Totems:GetChildren()) do
+            if not table.find(TotemOptions, t.Name) then table.insert(TotemOptions, t.Name) end
+        end
+    end
+end)
+
+local BuyTargets = {MeatOptions[1]} 
+local BuyTotemTargets = {} 
+local BuyThreshold = 5
+local ActionDelay = 0.3
+local MeatStates = {}
+
+-- == EXPLOIT: INSTANT PROXIMITY PROMPT ==
+ProximityPromptService.PromptButtonHoldBegan:Connect(function(prompt, playerActed)
+    if Toggles.InstantPrompt and playerActed == player then
+        -- Instantly fires the prompt the exact millisecond you touch 'E'
+        if fireproximityprompt then
+            fireproximityprompt(prompt)
+        else
+            prompt.HoldDuration = 0
+        end
+    end
+end)
+
+-- == EXPLOIT: AUTO CLEAR ENTIRE YARD ==
+local function clearYard()
+    local char = player.Character
+    local hum = char and char:FindFirstChildOfClass("Humanoid")
+    local backpack = player:FindFirstChild("Backpack")
+    
+    -- Smart function to find and equip the hammer automatically
+    local function equipHammer()
+        if char then
+            for _, t in ipairs(char:GetChildren()) do
+                if string.find(string.lower(t.Name), "hammer") then return true end
+            end
+        end
+        if backpack and hum then
+            for _, t in ipairs(backpack:GetChildren()) do
+                if string.find(string.lower(t.Name), "hammer") then
+                    hum:EquipTool(t)
+                    task.wait(0.2)
+                    return true
+                end
+            end
+        end
+        return false
+    end
+
+    if not equipHammer() then
+        print("❌ You must own a Hammer to clear the yard!")
+        return
+    end
+
+    local myLot = workspace:WaitForChild("PlayerLots"):FindFirstChild(player.Name)
+    if myLot then
+        print("🧹 Vacuuming Yard...")
+        for _, item in ipairs(myLot:GetChildren()) do
+            for _, prompt in ipairs(item:GetDescendants()) do
+                if prompt:IsA("ProximityPrompt") then
+                    local text = string.lower(prompt.ActionText)
+                    -- Make sure we are picking up, not opening a UI or interacting
+                    if string.find(text, "pick") or string.find(text, "take") then
+                        if fireproximityprompt then
+                            fireproximityprompt(prompt)
+                        else
+                            prompt.HoldDuration = 0
+                            prompt:InputHoldBegin()
+                            task.wait(0.05)
+                            prompt:InputHoldEnd()
+                        end
+                        task.wait(0.05) -- Tiny delay to prevent anti-cheat disconnects
+                    end
+                end
+            end
+        end
+        print("✅ Yard fully cleared!")
+    end
+end
+
+-- == EXPLOIT: NETWORK PACKET CLONER (TOTEM SPOOFER) ==
+local isSpamming = false
+local oldNamecall
+oldNamecall = hookmetamethod(game, "__namecall", newcclosure(function(self, ...)
+    local method = getnamecallmethod()
+    if Toggles.StackExploit and not checkcaller() and not isSpamming then
+        if method == "FireServer" or method == "InvokeServer" then
+            local remoteName = tostring(self.Name)
+            if remoteName ~= "CookUpdate" and remoteName ~= "BuyShopItem" and remoteName ~= "BuyMeat" and remoteName ~= "PlaceMeat" and remoteName ~= "NPCResponse" and remoteName ~= "GetTotemStock" then
+                local args = {...}
+                task.spawn(function()
+                    isSpamming = true
+                    for i = 1, StackAmount - 1 do
+                        if method == "FireServer" then
+                            self:FireServer(unpack(args))
+                        else
+                            pcall(function() self:InvokeServer(unpack(args)) end)
+                        end
+                    end
+                    isSpamming = false
+                end)
+            end
+        end
+    end
+    return oldNamecall(self, ...)
+end))
+
+-- == Standard Remote Listeners ==
+ReplicatedStorage.Remotes.CookUpdate.OnClientEvent:Connect(function(spot, meatName, timeVal, state)
+    if spot and typeof(spot) == "Instance" then MeatStates[spot] = state end
+end)
+
+ReplicatedStorage.Remotes.NPCOffer.OnClientEvent:Connect(function(npc, price, meatName, offerId)
+    if Toggles.AutoSell then
+        task.wait(math.random(3, 6) / 10) 
+        ReplicatedStorage.Remotes.NPCResponse:FireServer(offerId, true)
+    end
+end)
+
+-- == Core Helper Functions ==
+local function isSpotEmpty(spot)
+    for _, child in ipairs(spot:GetChildren()) do
+        if child:IsA("Model") or child:IsA("BasePart") or child:IsA("UnionOperation") or child:GetAttribute("MeatName") ~= nil then return false end
+        if child:IsA("ProximityPrompt") then
+            local actionText = string.lower(child.ActionText)
+            if string.find(actionText, "pick up") or string.find(actionText, "take") then return false end
+        end
+    end
+    local prompt = spot:FindFirstChildOfClass("ProximityPrompt")
+    if prompt then
+        local actionText = string.lower(prompt.ActionText)
+        if string.find(actionText, "pick up") or string.find(actionText, "take") then return false end
+    end
+    return true
+end
+
+local function getAndEquipMeat(typeFilter)
+    local char = player.Character
+    local hum = char and char:FindFirstChildOfClass("Humanoid")
+    local backpack = player:FindFirstChild("Backpack")
+    if not hum or not backpack then return nil end
+
+    local function isCorrectMeat(tool)
+        if not tool:IsA("Tool") then return false end
+        local name = string.lower(tool.Name)
+        
+        if string.find(name, "hammer") or string.find(name, "table") or string.find(name, "chair") or string.find(name, "oven") or string.find(name, "tent") then return false end
+        if string.find(name, "grill") and not string.find(name, "grilled") then return false end
+        
+        local isCooked = string.find(name, "%[") or string.find(name, "perfect") or string.find(name, "overcooked") or string.find(name, "cooked")
+        local isRaw = string.find(name, "raw ")
+        
+        if typeFilter == "Raw" and isRaw and not isCooked then return true
+        elseif typeFilter == "Cooked" and isCooked then return true end
+        return false
+    end
+
+    for _, t in ipairs(char:GetChildren()) do if isCorrectMeat(t) then return t end end
+    for _, t in ipairs(backpack:GetChildren()) do
+        if isCorrectMeat(t) then
+            hum:EquipTool(t)
+            task.wait(0.1)
+            return t
+        end
+    end
+    return nil
+end
+
+local function countMeatStock(targetName)
+    local count = 0
+    local tLower = string.lower(targetName)
+    local function scan(folder)
+        for _, item in ipairs(folder:GetChildren()) do
+            if item:IsA("Tool") and string.find(string.lower(item.Name), tLower) then
+                local match = string.match(item.Name, "%(x(%d+)%)")
+                if match then count = count + tonumber(match) else count = count + 1 end
+            end
+        end
+    end
+    if player.Character then scan(player.Character) end
+    if player:FindFirstChild("Backpack") then scan(player:FindFirstChild("Backpack")) end
+    return count
+end
+
+local function getCleanName(toolName)
+    local clean = string.gsub(toolName, "%s*%(x%d+%)", "")
+    return string.match(clean, "^%s*(.-)%s*$") or clean
+end
+
+-- == Main Automation Loop ==
+task.spawn(function()
+    while task.wait(ActionDelay) do
+        local myLot = workspace:WaitForChild("PlayerLots"):FindFirstChild(player.Name)
+        if not myLot then continue end
+        
+        if Toggles.AutoCook then
+            for _, furniture in ipairs(myLot:GetChildren()) do
+                local grills = furniture:FindFirstChild("GrillSpots")
+                if grills then
+                    for _, spot in ipairs(grills:GetChildren()) do
+                        if isSpotEmpty(spot) then
+                            local rawMeat = getAndEquipMeat("Raw")
+                            if rawMeat then
+                                ReplicatedStorage.Remotes.PlaceMeat:FireServer(spot, getCleanName(rawMeat.Name))
+                                task.wait(ActionDelay)
+                            end
+                        else
+                            local state = MeatStates[spot]
+                            if not state then
+                                local meatPart = spot:FindFirstChildWhichIsA("BasePart") or spot:FindFirstChildWhichIsA("UnionOperation")
+                                if meatPart then
+                                    local bb = meatPart:FindFirstChild("CookBillboard")
+                                    if bb and bb:FindFirstChild("BG") and bb.BG:FindFirstChild("StateLabel") then state = bb.BG.StateLabel.Text end
+                                end
+                            end
+                            if state == "Perfect" then
+                                ReplicatedStorage.Remotes.PickupMeat:FireServer(spot)
+                                MeatStates[spot] = nil
+                                task.wait(ActionDelay)
+                            end
+                        end
+                    end
+                end
+            end
+        end
+        
+        if Toggles.AutoPlate then
+            for _, furniture in ipairs(myLot:GetChildren()) do
+                local plates = furniture:FindFirstChild("Plates")
+                if plates then
+                    for _, plate in ipairs(plates:GetChildren()) do
+                        if isSpotEmpty(plate) then
+                            local cookedMeat = getAndEquipMeat("Cooked")
+                            if cookedMeat then
+                                ReplicatedStorage.Remotes.PlaceMeat:FireServer(plate, getCleanName(cookedMeat.Name))
+                                task.wait(ActionDelay)
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+end)
+
+-- == Auto Buy Loop ==
+task.spawn(function()
+    while task.wait(1.5) do
+        if Toggles.AutoBuy and #BuyTargets > 0 then
+            for _, targetMeat in ipairs(BuyTargets) do
+                if countMeatStock(targetMeat) < BuyThreshold then
+                    ReplicatedStorage.Remotes.BuyMeat:FireServer(targetMeat, false)
+                    task.wait(0.3)
+                end
+            end
+        end
+        if Toggles.AutoBuyTotem and #BuyTotemTargets > 0 then
+            for _, targetTotem in ipairs(BuyTotemTargets) do
+                ReplicatedStorage.Remotes.BuyShopItem:FireServer(targetTotem, false)
+                task.wait(0.3)
+            end
+        end
+    end
+end)
+
+-- == GUI CONSTRUCTION ==
+local sg = Instance.new("ScreenGui")
+sg.Name = "BBQMastery"
+sg.ResetOnSpawn = false
+pcall(function() sg.Parent = CoreGui end)
+if not sg.Parent then sg.Parent = player:WaitForChild("PlayerGui") end
+
+for _, child in ipairs(sg.Parent:GetChildren()) do
+    if child.Name == "BBQMastery" and child ~= sg then child:Destroy() end
+end
+
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 310, 0, 360)
+frame.Position = UDim2.new(0.5, -155, 0.5, -180)
+frame.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
+frame.BorderSizePixel = 0
+frame.Active = true
+frame.Draggable = true
+frame.Parent = sg
+Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 10)
+
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, 0, 0, 35)
+title.BackgroundTransparency = 1
+title.Text = "🍖 BBQ MASTERY"
+title.TextColor3 = Color3.fromRGB(255, 120, 50)
+title.Font = Enum.Font.GothamBold
+title.TextSize = 18
+title.Parent = frame
+
+local closeBtn = Instance.new("TextButton")
+closeBtn.Size = UDim2.new(0, 30, 0, 30)
+closeBtn.Position = UDim2.new(1, -35, 0, 2)
+closeBtn.BackgroundTransparency = 1
+closeBtn.Text = "X"
+closeBtn.TextColor3 = Color3.fromRGB(255, 80, 80)
+closeBtn.Font = Enum.Font.GothamBold
+closeBtn.TextSize = 16
+closeBtn.Parent = frame
+closeBtn.MouseButton1Click:Connect(function() sg:Destroy() end)
+
+-- Tabs Container
+local tabFrame = Instance.new("Frame")
+tabFrame.Size = UDim2.new(1, 0, 0, 30)
+tabFrame.Position = UDim2.new(0, 0, 0, 35)
+tabFrame.BackgroundTransparency = 1
+tabFrame.Parent = frame
+
+local pageMeat = Instance.new("Frame")
+pageMeat.Size = UDim2.new(1, 0, 1, -65)
+pageMeat.Position = UDim2.new(0, 0, 0, 65)
+pageMeat.BackgroundTransparency = 1
+pageMeat.Parent = frame
+
+local pageTotems = Instance.new("Frame")
+pageTotems.Size = UDim2.new(1, 0, 1, -65)
+pageTotems.Position = UDim2.new(0, 0, 0, 65)
+pageTotems.BackgroundTransparency = 1
+pageTotems.Visible = false
+pageTotems.Parent = frame
+
+local pageExploits = Instance.new("Frame")
+pageExploits.Size = UDim2.new(1, 0, 1, -65)
+pageExploits.Position = UDim2.new(0, 0, 0, 65)
+pageExploits.BackgroundTransparency = 1
+pageExploits.Visible = false
+pageExploits.Parent = frame
+
+local function createTabButton(text, xPos, targetPage, isDefault)
+    local btn = Instance.new("TextButton")
+    btn.Size = UDim2.new(0.31, 0, 1, 0)
+    btn.Position = UDim2.new(xPos, 0, 0, 0)
+    btn.BackgroundColor3 = isDefault and Color3.fromRGB(255, 120, 50) or Color3.fromRGB(40, 40, 45)
+    btn.Text = text
+    btn.TextColor3 = isDefault and Color3.fromRGB(255, 255, 255) or Color3.fromRGB(180, 180, 180)
+    btn.Font = Enum.Font.GothamBold
+    btn.TextSize = 12
+    Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 6)
+    btn.Parent = tabFrame
+    return btn
+end
+
+local btnTabMeat = createTabButton("🍖 BBQ", 0.02, pageMeat, true)
+local btnTabTotem = createTabButton("🗿 TOTEMS", 0.34, pageTotems, false)
+local btnTabExploit = createTabButton("🔥 EXPLOIT", 0.66, pageExploits, false)
+
+local tabsList = {
+    {btn = btnTabMeat, page = pageMeat},
+    {btn = btnTabTotem, page = pageTotems},
+    {btn = btnTabExploit, page = pageExploits}
+}
+
+for _, tab in ipairs(tabsList) do
+    tab.btn.MouseButton1Click:Connect(function()
+        for _, t in ipairs(tabsList) do
+            t.page.Visible = (t == tab)
+            t.btn.BackgroundColor3 = (t == tab) and Color3.fromRGB(255, 120, 50) or Color3.fromRGB(40, 40, 45)
+            t.btn.TextColor3 = (t == tab) and Color3.fromRGB(255, 255, 255) or Color3.fromRGB(180, 180, 180)
+        end
+    end)
+end
+
+-- Element Generators
+local function createToggle(parent, name, yPos, varName)
+    local btn = Instance.new("TextButton")
+    btn.Size = UDim2.new(0.85, 0, 0, 35)
+    btn.Position = UDim2.new(0.075, 0, 0, yPos)
+    btn.BackgroundColor3 = Color3.fromRGB(40, 40, 45)
+    btn.Text = name .. " [OFF]"
+    btn.TextColor3 = Color3.fromRGB(200, 200, 200)
+    btn.Font = Enum.Font.GothamBold
+    btn.TextSize = 13
+    Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 6)
+    btn.Parent = parent
+    
+    btn.MouseButton1Click:Connect(function()
+        Toggles[varName] = not Toggles[varName]
+        if Toggles[varName] then
+            btn.BackgroundColor3 = Color3.fromRGB(255, 120, 50)
+            btn.Text = name .. " [ON]"
+            btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+        else
+            btn.BackgroundColor3 = Color3.fromRGB(40, 40, 45)
+            btn.Text = name .. " [OFF]"
+            btn.TextColor3 = Color3.fromRGB(200, 200, 200)
+        end
+    end)
+end
+
+local function createActionButton(parent, name, yPos, callback)
+    local btn = Instance.new("TextButton")
+    btn.Size = UDim2.new(0.85, 0, 0, 35)
+    btn.Position = UDim2.new(0.075, 0, 0, yPos)
+    btn.BackgroundColor3 = Color3.fromRGB(200, 50, 50)
+    btn.Text = name
+    btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+    btn.Font = Enum.Font.GothamBold
+    btn.TextSize = 13
+    Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 6)
+    btn.Parent = parent
+    btn.MouseButton1Click:Connect(callback)
+end
+
+local function createDropdown(parent, labelPrefix, yPos, options, targetTable)
+    local mainBtn = Instance.new("TextButton")
+    mainBtn.Size = UDim2.new(0.85, 0, 0, 35)
+    mainBtn.Position = UDim2.new(0.075, 0, 0, yPos)
+    mainBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 35)
+    mainBtn.Text = labelPrefix .. (#targetTable > 0 and string.sub(targetTable[1], 1, 15) or "None")
+    mainBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+    mainBtn.Font = Enum.Font.Gotham
+    mainBtn.TextSize = 13
+    mainBtn.ZIndex = 5
+    Instance.new("UICorner", mainBtn).CornerRadius = UDim.new(0, 6)
+    Instance.new("UIStroke", mainBtn).Color = Color3.fromRGB(60, 60, 65)
+    mainBtn.Parent = parent
+
+    local list = Instance.new("ScrollingFrame")
+    list.Size = UDim2.new(0.85, 0, 0, 120)
+    list.Position = UDim2.new(0.075, 0, 0, yPos + 40)
+    list.BackgroundColor3 = Color3.fromRGB(35, 35, 40)
+    list.BorderSizePixel = 0
+    list.ScrollBarThickness = 4
+    list.ScrollBarImageColor3 = Color3.fromRGB(255, 120, 50)
+    list.Visible = false
+    list.ZIndex = 10
+    list.CanvasSize = UDim2.new(0, 0, 0, #options * 30)
+    Instance.new("UICorner", list).CornerRadius = UDim.new(0, 6)
+    list.Parent = parent
+    Instance.new("UIListLayout", list)
+
+    for i, optName in ipairs(options) do
+        local optBtn = Instance.new("TextButton")
+        optBtn.Size = UDim2.new(1, 0, 0, 30)
+        optBtn.BackgroundColor3 = (i % 2 == 0) and Color3.fromRGB(40, 40, 45) or Color3.fromRGB(35, 35, 40)
+        optBtn.BorderSizePixel = 0
+        optBtn.Text = optName
+        optBtn.TextColor3 = table.find(targetTable, optName) and Color3.fromRGB(100, 255, 100) or Color3.fromRGB(220, 220, 220)
+        optBtn.Font = Enum.Font.Gotham
+        optBtn.TextSize = 12
+        optBtn.ZIndex = 11
+        optBtn.Parent = list
+        
+        optBtn.MouseButton1Click:Connect(function()
+            local idx = table.find(targetTable, optName)
+            if idx then
+                table.remove(targetTable, idx)
+                optBtn.TextColor3 = Color3.fromRGB(220, 220, 220)
+            else
+                table.insert(targetTable, optName)
+                optBtn.TextColor3 = Color3.fromRGB(100, 255, 100)
+            end
+            if #targetTable == 0 then mainBtn.Text = labelPrefix .. "None"
+            elseif #targetTable == 1 then mainBtn.Text = labelPrefix .. string.sub(targetTable[1], 1, 15)
+            else mainBtn.Text = labelPrefix .. #targetTable .. " Selected" end
+        end)
+    end
+    mainBtn.MouseButton1Click:Connect(function() list.Visible = not list.Visible end)
+end
+
+-- Populate Tab 1: Meat
+createToggle(pageMeat, "Auto Cook (Perfect)", 10, "AutoCook")
+createToggle(pageMeat, "Auto Plate", 55, "AutoPlate")
+createToggle(pageMeat, "Auto Sell (NPC)", 100, "AutoSell")
+createToggle(pageMeat, "Auto Buy Meat", 145, "AutoBuy")
+createDropdown(pageMeat, "Buy Meat: ", 190, MeatOptions, BuyTargets)
+
+-- Populate Tab 2: Totems
+createToggle(pageTotems, "Auto Buy Totems", 10, "AutoBuyTotem")
+createDropdown(pageTotems, "Buy Totem: ", 55, TotemOptions, BuyTotemTargets)
+
+-- Populate Tab 3: Exploits
+createToggle(pageExploits, "Totem Multi-Place", 10, "StackExploit")
+
+local stackFrame = Instance.new("Frame")
+stackFrame.Size = UDim2.new(0.85, 0, 0, 35)
+stackFrame.Position = UDim2.new(0.075, 0, 0, 50)
+stackFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 35)
+Instance.new("UICorner", stackFrame).CornerRadius = UDim.new(0, 6)
+stackFrame.Parent = pageExploits
+
+local stackLabel = Instance.new("TextLabel")
+stackLabel.Size = UDim2.new(0.6, 0, 1, 0)
+stackLabel.Position = UDim2.new(0.05, 0, 0, 0)
+stackLabel.BackgroundTransparency = 1
+stackLabel.Text = "Totems to Stack:"
+stackLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
+stackLabel.Font = Enum.Font.Gotham
+stackLabel.TextSize = 13
+stackLabel.TextXAlignment = Enum.TextXAlignment.Left
+stackLabel.Parent = stackFrame
+
+local stackInput = Instance.new("TextBox")
+stackInput.Size = UDim2.new(0.3, 0, 0.7, 0)
+stackInput.Position = UDim2.new(0.65, 0, 0.15, 0)
+stackInput.BackgroundColor3 = Color3.fromRGB(40, 40, 45)
+stackInput.TextColor3 = Color3.fromRGB(255, 255, 255)
+stackInput.Text = tostring(StackAmount)
+stackInput.Font = Enum.Font.GothamBold
+stackInput.TextSize = 13
+Instance.new("UICorner", stackInput).CornerRadius = UDim.new(0, 4)
+stackInput.Parent = stackFrame
+
+stackInput.FocusLost:Connect(function()
+    local num = tonumber(stackInput.Text)
+    if num and num > 0 and num <= 1200 then
+        StackAmount = math.floor(num)
+    else
+        StackAmount = 20
+    end
+    stackInput.Text = tostring(StackAmount)
+end)
+
+local warningLabel = Instance.new("TextLabel")
+warningLabel.Size = UDim2.new(0.85, 0, 0, 40)
+warningLabel.Position = UDim2.new(0.075, 0, 0, 90)
+warningLabel.BackgroundTransparency = 1
+warningLabel.Text = "⚠️ Turn ON, click yard to place, turn OFF quickly!"
+warningLabel.TextColor3 = Color3.fromRGB(255, 100, 100)
+warningLabel.Font = Enum.Font.Gotham
+warningLabel.TextSize = 11
+warningLabel.TextWrapped = true
+warningLabel.Parent = pageExploits
+
+createToggle(pageExploits, "Instant Interact (Zero Delay)", 140, "InstantPrompt")
+createActionButton(pageExploits, "🧹 Auto Clear Entire Yard", 185, clearYard)
+
+print("✅ BBQ Mastery v6 (Auto-Clear & Instant Prompts) Loaded!")
