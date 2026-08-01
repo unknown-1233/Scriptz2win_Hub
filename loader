@@ -1,0 +1,13 @@
+local scripts = {
+    [88518003689791] = { "bbq it", "https://raw.githubusercontent.com/unknown-1233/Scriptz2win_Hub/refs/heads/main/bbq_it.txt" },
+}
+
+local placeId = game.PlaceId
+local data = scripts[placeId]
+
+if data then
+    print("Loading: " .. data[1])
+    loadstring(game:HttpGet(data[2]))()
+else
+    warn("No script for this place: " .. placeId)
+end
