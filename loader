@@ -1,5 +1,6 @@
 local scripts = {
     [88518003689791] = { "bbq it", "https://raw.githubusercontent.com/unknown-1233/Scriptz2win_Hub/refs/heads/main/bbq_it.txt" },
+[81239378558719] = { "hide the body", "https://raw.githubusercontent.com/unknown-1233/Scriptz2win_Hub/refs/heads/main/hide%20the%20body" },
 }
 
 local placeId = game.PlaceId
