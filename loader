@@ -1,14 +1,148 @@
 local scripts = {
-    [88518003689791] = { "bbq it", "https://raw.githubusercontent.com/unknown-1233/Scriptz2win_Hub/refs/heads/main/bbq_it.txt" },
-[81239378558719] = { "hide the body", "https://raw.githubusercontent.com/unknown-1233/Scriptz2win_Hub/refs/heads/main/hide%20the%20body" },
+    -- Your original entries
+    ["bbq it"] = "https://raw.githubusercontent.com/unknown-1233/Scriptz2win_Hub/refs/heads/main/bbq_it.txt",
+    ["hide the body"] = "https://raw.githubusercontent.com/unknown-1233/Scriptz2win_Hub/refs/heads/main/hide%20the%20body",
+
+    -- Previously added entries (68 games)
+    ["Work at a Pizza Place"] = "https://raw.githubusercontent.com/Hm5011/hussain/refs/heads/main/Work%20at%20a%20pizza%20place",
+    ["Natural Disaster Survival"] = "https://pastebin.com/raw/8XCgheRD",
+    ["Lumber Tycoon 2"] = "https://raw.githubusercontent.com/DevKron/Kron_Hub/refs/heads/main/version_1.0",
+    ["Arsenal"] = "https://catware.xyz/Arsenal.lua",
+    ["Project Lazarus"] = "https://raw.githubusercontent.com/SimpleVerifiedScriptMaker/Project-Lazarus/refs/heads/main/README.md",
+    ["Build a Boat for Treasure"] = "https://raw.githubusercontent.com/ScepTsk/Kurumi-Hub/refs/heads/main/KurumiHub.lua",
+    ["Jailbreak"] = "https://raw.githubusercontent.com/Benmuhammed7/Hexiron/refs/heads/main/Jailbird/Main.lua",
+    ["Greenville"] = "https://raw.githubusercontent.com/typical-overk1ll/scripts/main/Greenville",
+    ["Bee Swarm Simulator"] = "https://raw.githubusercontent.com/VerbalHubz/Verbal-Hub/refs/heads/main/Bee%20Swarm%20Sim.Lua",
+    ["Car Dealership Tycoon"] = "https://raw.githubusercontent.com/03koios/Loader/main/Loader.lua",
+    ["Tower of Hell"] = "https://pastebin.com/raw/CLKFaUJR",
+    ["Driving Empire"] = "https://raw.githubusercontent.com/SoldoxD/Scripts/refs/heads/main/Driving_Empire",
+    ["Ninja Legends"] = "https://raw.githubusercontent.com/TrixAde/Proxima-Hub/main/Main.lua",
+    ["War Tycoon"] = "https://raw.githubusercontent.com/ufouzz ed/WarTycoon/main/ByJMaxeyy",
+    ["HOOPZ"] = "https://raw.githubusercontent.com/2xrW/return/refs/heads/main/hub",
+    ["Funky Friday"] = "https://raw.githubusercontent.com/InfernusScripts/Fire-Hub/main/Loader",
+    ["DOORS"] = "https://raw.githubusercontent.com/TheHunterSolo1/OrangeHub/refs/heads/main/Rehax.luau",
+    ["Bedwars"] = "https://raw.githubusercontent.com/VapeVoidware/VWRewrite/master/NewMainScript.lua",
+    ["Fling Things and People"] = "https://raw.githubusercontent.com/Bruhiscrazy/codespaces-blank/refs/heads/main/FTAPadminwatch.lua",
+    ["Squid Game X"] = "https://raw.githubusercontent.com/gumanba/Scripts/main/SquidGameX",
+    ["Michael's Zombies"] = "https://raw.githubusercontent.com/Bebo-Mods/BeboScripts/main/MichaelZombies.lua",
+    ["Evade"] = "https://api.luarmor.net/files/v3/loaders/f3ed0bc1276c97a6404b78a360196d2d.lua",
+    ["Murderers VS Sheriffs Duels"] = "https://raw.githubusercontent.com/Rysted/scripts/main/MurderersVSSheriffs.lua",
+    ["Build a Ring Farm"] = "https://raw.githubusercontent.com/femmehomme90-web/RayVoid_Scripts/main/Build-A-Ring-Farm",
+    ["Speed Keyboard Escape"] = "https://raw.githubusercontent.com/gumanba/Scripts/main/1SpeedKeyboardEscape",
+    ["Run a Restaurant"] = "https://api.jnkie.com/api/v1/luascripts/public/eeba235ccf834b503645f03589f686b38aaae4d4e62a1680ace16633ce9f5601/download",
+    ["Survive Zombie Arena"] = "https://valencea.xyz/main.lua",
+    ["Kick a Lucky Block"] = "https://fourhub13.vercel.app/KickALuckyBlock.lua",
+    ["Merge a Nuke"] = "https://raw.githubusercontent.com/infinixhot10snfc24-ctrl/Noname/refs/heads/main/Merge%20a%20Nuke!(os).lua",
+    ["Slime RNG"] = "https://pastebin.com/raw/qTvPVVpZ",
+    ["Volleyball Legends"] = "https://raw.githubusercontent.com/M1zard/LokisVoley/refs/heads/main/VolleyBallLegendsScript.lua",
+    ["Mini War"] = "https://raw.githubusercontent.com/LynX99-9/komtolmmek2script/refs/heads/main/CyraaHub.lua",
+    ["Sailor Piece"] = "https://raw.githubusercontent.com/ZhangJunZ84/twvzyyds/refs/heads/main/sailorpiece.lua",
+    ["Dandy's World"] = "https://pastebin.com/raw/H3u62n7D",
+    ["Demonology"] = "https://fourhub13.vercel.app/Demonology.lua",
+    ["A Dusty Road Trip"] = "https://raw.githubusercontent.com/Scripterbacon/Test-Script/main/a%20dusty%20trip.Lua",
+    ["Neo Tennis"] = "https://raw.githubusercontent.com/lamduck2005/RobloxScript/master/neo-tennis.lua",
+    ["Violence District"] = "https://raw.githubusercontent.com/Claudeware/VD/refs/heads/main/VD.lua",
+    ["Axe RNG"] = "https://gist.githubusercontent.com/user2084375/ef0c1434dc71b6bec4349ee57b04f1b5/raw/66f8d272ceecb1117226b0c7fd72a5850403399f/gistfile1.txt",
+    ["Tree RNG"] = "https://raw.githubusercontent.com/rblxshop/Rblxscripts/refs/heads/main/TreeRng.lua",
+    ["Animal Hospital"] = "https://raw.githubusercontent.com/caomod2077/Script/main/FN_AnimalHospital.lua",
+    ["Untitled Melee RNG"] = "https://raw.githubusercontent.com/zadei/melee-rng/refs/heads/main/melee-script.lua",
+    ["Dress to Impress"] = "https://raw.githubusercontent.com/ToraScript/Script/main/DressToImpress",
+    ["Ink Games"] = "https://raw.githubusercontent.com/wefwef127382/inkgames.github.io/refs/heads/main/ringta.lua",
+    ["Rivals"] = "https://raw.githubusercontent.com/tokyotokyo-dev/rivals/refs/heads/main/rivalsaimwh.lua",
+    ["Fish It"] = "https://lua.cloudlabx.online/scripts/103.NiCH",
+    ["Spin a Soccer Card"] = "https://api.luarmor.net/files/v3/loaders/fda9babd071d6b536a745774b6bc681c.lua",
+    ["Chicken Farm"] = "https://pastefy.app/2uZIr9oS/raw",
+    ["Catch and Tame"] = "https://raw.githubusercontent.com/PHUMWIWAT/Scripts/refs/heads/main/Catch%20and%20tame",
+    ["Basketball Legends"] = "https://raw.githubusercontent.com/vnausea/absence-mini/refs/heads/main/absencemini.lua",
+    ["Sols RNG"] = "https://raw.githubusercontent.com/iw4st/Scripts/refs/heads/main/solsrngeggfarm",
+    ["Zombie Attack"] = "https://raw.githubusercontent.com/whouaue/Whoamhoam-ZombieAttack/refs/heads/main/Whoamhoam-ZombieAttack.lua",
+    ["Ability Wars"] = "https://gitlab.com/r_soft/main/-/raw/main/LoadUB.lua",
+    ["King Legacy"] = "https://raw.githubusercontent.com/Tsuo7/TsuoHub/main/king%20legacy",
+    ["Emergency Hamburg"] = "https://beanzz.wtf/Main.lua",
+    ["Tha Bronx 3"] = "https://raw.githubusercontent.com/voidrzn/Axion-/refs/heads/main/Tha%20bronx%203",
+    ["PayDay"] = "https://raw.githubusercontent.com/perfectusmim1/spiemhub/refs/heads/main/loader",
+    ["Storage Hunters: Open World"] = "https://raw.githubusercontent.com/femmehomme90-web/RayVoid_Scripts/main/Storage-Hunters-Open-World",
+    ["Clean the Library"] = "https://raw.githubusercontent.com/KIMIK0T14/Clean-The-Library/refs/heads/main/Code.lua",
+    ["Roll to Defend"] = "https://raw.githubusercontent.com/astrixdevs/AstrixLoader/refs/heads/main/Loader",
+    ["Missiles vs Cities"] = "https://rawscripts.net/raw/Universal-Script-KRWare-hub-updated-August-10-48159",
+    ["Ice Tycoon 2"] = "https://raw.githubusercontent.com/rblxshop/Rblxscripts/refs/heads/main/IceTycoon.lua",
+    ["Dogs of War: World War 2"] = "https://api.luarmor.net/files/v3/loaders/00f27717e95f454316c6d3b3bdc82e6e.lua",
+    ["Fisch"] = "https://pastebin.com/raw/zpcAiB5c",
+    ["Realistic Street Soccer"] = "https://pastefy.app/Bnknp9VH/raw",
+    ["Drain a Lake"] = "https://raw.githubusercontent.com/gumanba/Scripts/main/DraintheLake",
+    ["Slap Battles"] = "https://pastebin.com/raw/EBzw4DKk",
+    ["Drill to Earth's Core"] = "https://raw.githubusercontent.com/2c2s/DrillBeta/main/drillBeta.txt",
+
+    -- Second batch (36 games)
+    ["3008"] = "https://raw.githubusercontent.com/Sealient/Sealients-Roblox-Scripts/refs/heads/main/3008-%20UPDATED/3008%20(new).lua",
+    ["99 Nights in the Forest"] = "https://pastebin.com/raw/09PNvrxb",
+    ["Blue Lock: Rivals"] = "https://raw.githubusercontent.com/dehism/Dehism/refs/heads/main/Inf%20Spins%20Auto%20Dehism",
+    ["Haze Seas"] = "https://raw.githubusercontent.com/NOX-ZUHILL/NOX-/refs/heads/main/NOX%20loader.lua",
+    ["Build a Soccer Squad!"] = "https://overhub.dev/loader.lua",
+    ["+1 Mine Per Click"] = "https://raw.githubusercontent.com/gumanba/Scripts/main/1MinePerClick",
+    ["Demonfall"] = "https://pastebin.com/raw/x371CZG6",
+    ["BloxStrike"] = "https://gist.githubusercontent.com/Mur4exe/3630986af6e9f80098e13a5f8c682efb/raw/dce29546fd7aee6feefdf23fc20e4f2c01803864/Bloxstrikenew.lua",
+    ["Farming and Friends"] = "https://raw.githubusercontent.com/OneCreatorX/OneCreatorX/main/Scripts/UGCfree/SFarmer.lua",
+    ["Dead Rails"] = "https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/VexonHub",
+    ["Taxi Boss"] = "https://raw.githubusercontent.com/suka11567-coder/FixzHub/refs/heads/main/Script%20Taxi%20Boss",
+    ["The Wild West"] = "https://raw.githubusercontent.com/Spooksmn/Tww-Stuff/main/EternalXcracked.lua",
+    ["Mine a Planet"] = "https://raw.soteria.rip/576c68705a464768",
+    ["NPC or DIE!"] = "https://raw.githubusercontent.com/Bac0nHck/Scripts/refs/heads/main/BeNpcOrDie",
+    ["Counter Blox"] = "https://pastebin.com/raw/SFxQHkYd",
+    ["Build a Base and Steal"] = "https://api.luarmor.net/files/v4/loaders/36dae98758a86236614f1af9a4ec1a8b.lua",
+    ["+1 Speed Monkey Escape"] = "https://raw.githubusercontent.com/RVNGG145/Moonkey-Hub/refs/heads/main/MoonkeyHub",
+    ["The Company"] = "https://raw.githubusercontent.com/BokX1/TheCompany/refs/heads/main/TheCompanyOBF.lua",
+    ["Gun Grounds FFA"] = "https://pastebin.com/raw/kT4FyqS7",
+    ["1.8 Arena"] = "https://raw.githubusercontent.com/Lutosys/1.8arena/refs/heads/main/1.8arena.lua",
+    ["Anime Expeditions"] = "https://raw.githubusercontent.com/Dodoyung24/script-core/main/Anime-Expedition",
+    ["Muscle Legends"] = "https://raw.githubusercontent.com/Tvinkilp/KilpLAB/refs/heads/main/Free.lua",
+    ["Legends of Speed"] = "https://api.cipher.pink/l/pasted-b615.lua",
+    ["Throw a Coin"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
+    ["Grace"] = "https://raw.githubusercontent.com/mafuasahina/whatever/main/grace",
+    ["Magic Loot"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
+    ["Clean Your Keycaps"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
+    ["Untitled Boxing Game"] = "https://raw.githubusercontent.com/LOLking123456/Untitled/main/Boxing",
+    ["Timebomb Duels"] = "https://raw.githubusercontent.com/Acairus/TimeBomb/refs/heads/main/TimeBomb.lua",
+    ["Pull a Lucky Fish"] = "https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/BeaLuckyFish",
+    ["Untitled Tag Game"] = "https://raw.githubusercontent.com/Zer0ids/Qwerty/main/UntitledTag/NewScript.lua",
+    ["+1 Fat Per Click"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
+    ["Deagle Arena"] = "https://raw.githubusercontent.com/Flosseyy/deaglearena/refs/heads/main/deagle.lua",
+    ["Break In"] = "https://pastebin.com/raw/yZ58C2rr",
+    ["KNIFE DUELS"] = "https://raw.githubusercontent.com/Flosseyy/knifeduels/refs/heads/main/knife.lua",
+    ["Bake or Die"] = "https://pastebin.com/raw/b04fABf3",
+
+    -- Newly added entries (46 games)
+    ["Spin a Car"] = "https://api.luarmor.net/files/v3/loaders/d8824b23a4d9f2e0d62b4e69397d206b.lua", -- From BlockSpin script[reference:0]
+    ["Rensselaer County"] = "https://raw.githubusercontent.com/vxperity/Bloxify/refs/heads/main/rensselaer.lua", -- Bloxify Hub[reference:1]
+    ["Car Flipper"] = "https://raw.githubusercontent.com/skibidibibvidi/silver-guacamole/refs/heads/main/Loadstring", -- LARPWARE Hub[reference:2]
+    ["Soccer: Touch Football"] = "https://pastebin.com/raw/PU84cqQ7", -- Ball Predictor Script[reference:3]
+    ["Gakuran"] = "https://gist.githubusercontent.com/so8g/ba8b3c08ab4bf5db7456a1668ba0530e/raw/7b437f41867089b94d7ec9ec2cf91d5ac3d55d03/gistfile1.txt", -- Auto Parry script[reference:4]
+    ["Forsaken"] = "https://raw.githubusercontent.com/BobJunior1/ForsakenBoi/refs/heads/main/B0bbyHub", -- Bobby Hub[reference:5]
+    ["Westbound"] = "https://raw.githubusercontent.com/v3nenohub/westbound/refs/heads/main/v3nenoontop", -- V3neno Hub[reference:6]
+    ["The Classic Soccer"] = "https://raw.githubusercontent.com/SyrexGenesisX/SyrexGenesisX/main/loader.lua", -- Best universal soccer script[reference:7]
+    ["Virus Border Roleplay"] = "https://raw.githubusercontent.com/Floysy/Roblox-scripts/refs/heads/main/SanDiegoBorderRP.lua", -- PHANTOM HUB[reference:8]
+    ["Break In 2"] = "https://raw.githubusercontent.com/Iceware-RBLX/Roblox/refs/heads/main/loader.lua", -- Iceware loader[reference:9]
+    ["Die of Death"] = "https://raw.githubusercontent.com/Minnngocc/Die-of-death/refs/heads/main/die-of-death.lua", -- Rayfield Hub[reference:10]
+    ["Elemental Powers Tycoon"] = "https://raw.githubusercontent.com/kichetvip/Script/refs/heads/main/Kiethub-EPT", -- Kiet Hub[reference:11]
+    ["San Diego Border Roleplay"] = "https://raw.githubusercontent.com/Floysy/Roblox-scripts/refs/heads/main/SanDiegoBorderRP.lua", -- PHANTOM HUB[reference:12]
+    ["Rainbow Friends"] = "https://gitlab.com/r_soft/main/-/raw/main/LoadUB.lua", -- Universal loader[reference:13]
+    ["A Desert"] = "https://raw.githubusercontent.com/duckfamily/myscript/refs/heads/main/script.lua", -- Pizdoliz Hub[reference:14]
+    ["Unseen Liminality"] = "https://rblxscripts.net/raw/esp-fly-noclip-teleport-keyless-acf458ec", -- OP No Keys script[reference:15]
+    ["M.E.G. Endless Reality"] = "https://pastebin.com/raw/NvcCsXab", -- Keyless OP 2026[reference:16]
+    ["Final Swarm"] = "https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/FinalSwarm", -- Tora Isme script[reference:17]
+    ["The Strongest Battlegrounds"] = "https://pastebin.com/raw/P2RuZTnK", -- TSB Script Hub[reference:18]
+    ["Flick"] = "https://apigetunx.vercel.app/UNX.lua", -- UNX Hub[reference:19]
 }
 
-local placeId = game.PlaceId
-local data = scripts[placeId]
+-- Auto-execute based on game name
+local MarketplaceService = game:GetService("MarketplaceService")
+local gameName = MarketplaceService:GetProductInfo(game.PlaceId).Name
 
-if data then
-    print("Loading: " .. data[1])
-    loadstring(game:HttpGet(data[2]))()
+local scriptUrl = scripts[gameName]
+
+if scriptUrl then
+    print("Loading script for: " .. gameName)
+    loadstring(game:HttpGet(scriptUrl))()
 else
-    warn("No script for this place: " .. placeId)
+    warn("No script found for game: " .. gameName)
 end
