@@ -1,163 +1,323 @@
-local scripts = {
-    -- Your original entries
-    ["bbq it"] = "https://raw.githubusercontent.com/unknown-1233/Scriptz2win_Hub/refs/heads/main/bbq_it.txt",
-    ["hide the body"] = "https://raw.githubusercontent.com/unknown-1233/Scriptz2win_Hub/refs/heads/main/hide%20the%20body",
+-- =============================================
+--  Scriptz2Win – Universal Script Loader
+--  Join us: https://discord.gg/2VkEH5vutf
+-- =============================================
 
-    -- Previously added entries (68 games)
-    ["Work at a Pizza Place"] = "https://raw.githubusercontent.com/Hm5011/hussain/refs/heads/main/Work%20at%20a%20pizza%20place",
-    ["Natural Disaster Survival"] = "https://pastebin.com/raw/8XCgheRD",
-    ["Lumber Tycoon 2"] = "https://raw.githubusercontent.com/DevKron/Kron_Hub/refs/heads/main/version_1.0",
-    ["Arsenal"] = "https://catware.xyz/Arsenal.lua",
-    ["Project Lazarus"] = "https://raw.githubusercontent.com/SimpleVerifiedScriptMaker/Project-Lazarus/refs/heads/main/README.md",
-    ["Build a Boat for Treasure"] = "https://raw.githubusercontent.com/ScepTsk/Kurumi-Hub/refs/heads/main/KurumiHub.lua",
-    ["Jailbreak"] = "https://raw.githubusercontent.com/Benmuhammed7/Hexiron/refs/heads/main/Jailbird/Main.lua",
-    ["Greenville"] = "https://raw.githubusercontent.com/typical-overk1ll/scripts/main/Greenville",
-    ["Bee Swarm Simulator"] = "https://raw.githubusercontent.com/VerbalHubz/Verbal-Hub/refs/heads/main/Bee%20Swarm%20Sim.Lua",
-    ["Car Dealership Tycoon"] = "https://raw.githubusercontent.com/03koios/Loader/main/Loader.lua",
-    ["Tower of Hell"] = "https://pastebin.com/raw/CLKFaUJR",
-    ["Driving Empire"] = "https://raw.githubusercontent.com/SoldoxD/Scripts/refs/heads/main/Driving_Empire",
-    ["Ninja Legends"] = "https://raw.githubusercontent.com/TrixAde/Proxima-Hub/main/Main.lua",
-    ["War Tycoon"] = "https://raw.githubusercontent.com/ufouzz ed/WarTycoon/main/ByJMaxeyy",
-    ["HOOPZ"] = "https://raw.githubusercontent.com/2xrW/return/refs/heads/main/hub",
-    ["Funky Friday"] = "https://raw.githubusercontent.com/InfernusScripts/Fire-Hub/main/Loader",
-    ["DOORS"] = "https://raw.githubusercontent.com/TheHunterSolo1/OrangeHub/refs/heads/main/Rehax.luau",
-    ["Bedwars"] = "https://raw.githubusercontent.com/VapeVoidware/VWRewrite/master/NewMainScript.lua",
-    ["Fling Things and People"] = "https://raw.githubusercontent.com/Bruhiscrazy/codespaces-blank/refs/heads/main/FTAPadminwatch.lua",
-    ["Squid Game X"] = "https://raw.githubusercontent.com/gumanba/Scripts/main/SquidGameX",
-    ["Michael's Zombies"] = "https://raw.githubusercontent.com/Bebo-Mods/BeboScripts/main/MichaelZombies.lua",
-    ["Evade"] = "https://api.luarmor.net/files/v3/loaders/f3ed0bc1276c97a6404b78a360196d2d.lua",
-    ["Murderers VS Sheriffs Duels"] = "https://raw.githubusercontent.com/Rysted/scripts/main/MurderersVSSheriffs.lua",
-    ["Build a Ring Farm"] = "https://raw.githubusercontent.com/femmehomme90-web/RayVoid_Scripts/main/Build-A-Ring-Farm",
-    ["Speed Keyboard Escape"] = "https://raw.githubusercontent.com/gumanba/Scripts/main/1SpeedKeyboardEscape",
-    ["Run a Restaurant"] = "https://api.jnkie.com/api/v1/luascripts/public/eeba235ccf834b503645f03589f686b38aaae4d4e62a1680ace16633ce9f5601/download",
-    ["Survive Zombie Arena"] = "https://valencea.xyz/main.lua",
-    ["Kick a Lucky Block"] = "https://fourhub13.vercel.app/KickALuckyBlock.lua",
-    ["Merge a Nuke"] = "https://raw.githubusercontent.com/infinixhot10snfc24-ctrl/Noname/refs/heads/main/Merge%20a%20Nuke!(os).lua",
-    ["Slime RNG"] = "https://pastebin.com/raw/qTvPVVpZ",
-    ["Volleyball Legends"] = "https://raw.githubusercontent.com/M1zard/LokisVoley/refs/heads/main/VolleyBallLegendsScript.lua",
-    ["Mini War"] = "https://raw.githubusercontent.com/LynX99-9/komtolmmek2script/refs/heads/main/CyraaHub.lua",
-    ["Sailor Piece"] = "https://raw.githubusercontent.com/ZhangJunZ84/twvzyyds/refs/heads/main/sailorpiece.lua",
-    ["Dandy's World"] = "https://pastebin.com/raw/H3u62n7D",
-    ["Demonology"] = "https://fourhub13.vercel.app/Demonology.lua",
-    ["A Dusty Road Trip"] = "https://raw.githubusercontent.com/Scripterbacon/Test-Script/main/a%20dusty%20trip.Lua",
-    ["Neo Tennis"] = "https://raw.githubusercontent.com/lamduck2005/RobloxScript/master/neo-tennis.lua",
-    ["Violence District"] = "https://raw.githubusercontent.com/Claudeware/VD/refs/heads/main/VD.lua",
-    ["Axe RNG"] = "https://gist.githubusercontent.com/user2084375/ef0c1434dc71b6bec4349ee57b04f1b5/raw/66f8d272ceecb1117226b0c7fd72a5850403399f/gistfile1.txt",
-    ["Tree RNG"] = "https://raw.githubusercontent.com/rblxshop/Rblxscripts/refs/heads/main/TreeRng.lua",
-    ["Animal Hospital"] = "https://raw.githubusercontent.com/caomod2077/Script/main/FN_AnimalHospital.lua",
-    ["Untitled Melee RNG"] = "https://raw.githubusercontent.com/zadei/melee-rng/refs/heads/main/melee-script.lua",
-    ["Dress to Impress"] = "https://raw.githubusercontent.com/ToraScript/Script/main/DressToImpress",
-    ["Ink Games"] = "https://raw.githubusercontent.com/wefwef127382/inkgames.github.io/refs/heads/main/ringta.lua",
-    ["Rivals"] = "https://raw.githubusercontent.com/tokyotokyo-dev/rivals/refs/heads/main/rivalsaimwh.lua",
-    ["Fish It"] = "https://lua.cloudlabx.online/scripts/103.NiCH",
-    ["Spin a Soccer Card"] = "https://api.luarmor.net/files/v3/loaders/fda9babd071d6b536a745774b6bc681c.lua",
-    ["Chicken Farm"] = "https://pastefy.app/2uZIr9oS/raw",
-    ["Catch and Tame"] = "https://raw.githubusercontent.com/PHUMWIWAT/Scripts/refs/heads/main/Catch%20and%20tame",
-    ["Basketball Legends"] = "https://raw.githubusercontent.com/vnausea/absence-mini/refs/heads/main/absencemini.lua",
-    ["Sols RNG"] = "https://raw.githubusercontent.com/iw4st/Scripts/refs/heads/main/solsrngeggfarm",
-    ["Zombie Attack"] = "https://raw.githubusercontent.com/whouaue/Whoamhoam-ZombieAttack/refs/heads/main/Whoamhoam-ZombieAttack.lua",
-    ["Ability Wars"] = "https://gitlab.com/r_soft/main/-/raw/main/LoadUB.lua",
-    ["King Legacy"] = "https://raw.githubusercontent.com/Tsuo7/TsuoHub/main/king%20legacy",
-    ["Emergency Hamburg"] = "https://beanzz.wtf/Main.lua",
-    ["Tha Bronx 3"] = "https://raw.githubusercontent.com/voidrzn/Axion-/refs/heads/main/Tha%20bronx%203",
-    ["PayDay"] = "https://raw.githubusercontent.com/perfectusmim1/spiemhub/refs/heads/main/loader",
-    ["Storage Hunters: Open World"] = "https://raw.githubusercontent.com/femmehomme90-web/RayVoid_Scripts/main/Storage-Hunters-Open-World",
-    ["Clean the Library"] = "https://raw.githubusercontent.com/KIMIK0T14/Clean-The-Library/refs/heads/main/Code.lua",
-    ["Roll to Defend"] = "https://raw.githubusercontent.com/astrixdevs/AstrixLoader/refs/heads/main/Loader",
-    ["Missiles vs Cities"] = "https://rawscripts.net/raw/Universal-Script-KRWare-hub-updated-August-10-48159",
-    ["Ice Tycoon 2"] = "https://raw.githubusercontent.com/rblxshop/Rblxscripts/refs/heads/main/IceTycoon.lua",
-    ["Dogs of War: World War 2"] = "https://api.luarmor.net/files/v3/loaders/00f27717e95f454316c6d3b3bdc82e6e.lua",
-    ["Fisch"] = "https://pastebin.com/raw/zpcAiB5c",
-    ["Realistic Street Soccer"] = "https://pastefy.app/Bnknp9VH/raw",
-    ["Drain a Lake"] = "https://raw.githubusercontent.com/gumanba/Scripts/main/DraintheLake",
-    ["Slap Battles"] = "https://pastebin.com/raw/EBzw4DKk",
-    ["Drill to Earth's Core"] = "https://raw.githubusercontent.com/2c2s/DrillBeta/main/drillBeta.txt",
+-- Get current game info
+local placeId = game.PlaceId
+local currentGameName = game:GetService("MarketplaceService"):GetProductInfo(placeId).Name
 
-    -- Second batch (36 games)
-    ["3008"] = "https://raw.githubusercontent.com/Sealient/Sealients-Roblox-Scripts/refs/heads/main/3008-%20UPDATED/3008%20(new).lua",
-    ["99 Nights in the Forest"] = "https://pastebin.com/raw/09PNvrxb",
-    ["Blue Lock: Rivals"] = "https://raw.githubusercontent.com/dehism/Dehism/refs/heads/main/Inf%20Spins%20Auto%20Dehism",
-    ["Haze Seas"] = "https://raw.githubusercontent.com/NOX-ZUHILL/NOX-/refs/heads/main/NOX%20loader.lua",
-    ["Build a Soccer Squad!"] = "https://overhub.dev/loader.lua",
-    ["+1 Mine Per Click"] = "https://raw.githubusercontent.com/gumanba/Scripts/main/1MinePerClick",
-    ["Demonfall"] = "https://pastebin.com/raw/x371CZG6",
-    ["BloxStrike"] = "https://gist.githubusercontent.com/Mur4exe/3630986af6e9f80098e13a5f8c682efb/raw/dce29546fd7aee6feefdf23fc20e4f2c01803864/Bloxstrikenew.lua",
-    ["Farming and Friends"] = "https://raw.githubusercontent.com/OneCreatorX/OneCreatorX/main/Scripts/UGCfree/SFarmer.lua",
-    ["Dead Rails"] = "https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/VexonHub",
-    ["Taxi Boss"] = "https://raw.githubusercontent.com/suka11567-coder/FixzHub/refs/heads/main/Script%20Taxi%20Boss",
-    ["The Wild West"] = "https://raw.githubusercontent.com/Spooksmn/Tww-Stuff/main/EternalXcracked.lua",
-    ["Mine a Planet"] = "https://raw.soteria.rip/576c68705a464768",
-    ["NPC or DIE!"] = "https://raw.githubusercontent.com/Bac0nHck/Scripts/refs/heads/main/BeNpcOrDie",
-    ["Counter Blox"] = "https://pastebin.com/raw/SFxQHkYd",
-    ["Build a Base and Steal"] = "https://api.luarmor.net/files/v4/loaders/36dae98758a86236614f1af9a4ec1a8b.lua",
-    ["+1 Speed Monkey Escape"] = "https://raw.githubusercontent.com/RVNGG145/Moonkey-Hub/refs/heads/main/MoonkeyHub",
-    ["The Company"] = "https://raw.githubusercontent.com/BokX1/TheCompany/refs/heads/main/TheCompanyOBF.lua",
-    ["Gun Grounds FFA"] = "https://pastebin.com/raw/kT4FyqS7",
-    ["1.8 Arena"] = "https://raw.githubusercontent.com/Lutosys/1.8arena/refs/heads/main/1.8arena.lua",
-    ["Anime Expeditions"] = "https://raw.githubusercontent.com/Dodoyung24/script-core/main/Anime-Expedition",
-    ["Muscle Legends"] = "https://raw.githubusercontent.com/Tvinkilp/KilpLAB/refs/heads/main/Free.lua",
-    ["Legends of Speed"] = "https://api.cipher.pink/l/pasted-b615.lua",
-    ["Throw a Coin"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
-    ["Grace"] = "https://raw.githubusercontent.com/mafuasahina/whatever/main/grace",
-    ["Magic Loot"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
-    ["Clean Your Keycaps"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
-    ["Untitled Boxing Game"] = "https://raw.githubusercontent.com/LOLking123456/Untitled/main/Boxing",
-    ["Timebomb Duels"] = "https://raw.githubusercontent.com/Acairus/TimeBomb/refs/heads/main/TimeBomb.lua",
-    ["Pull a Lucky Fish"] = "https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/BeaLuckyFish",
-    ["Untitled Tag Game"] = "https://raw.githubusercontent.com/Zer0ids/Qwerty/main/UntitledTag/NewScript.lua",
-    ["+1 Fat Per Click"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
-    ["Deagle Arena"] = "https://raw.githubusercontent.com/Flosseyy/deaglearena/refs/heads/main/deagle.lua",
-    ["Break In"] = "https://pastebin.com/raw/yZ58C2rr",
-    ["KNIFE DUELS"] = "https://raw.githubusercontent.com/Flosseyy/knifeduels/refs/heads/main/knife.lua",
-    ["Bake or Die"] = "https://pastebin.com/raw/b04fABf3",
-
-    -- Third batch (20 games)
-    ["Spin a Car"] = "https://api.luarmor.net/files/v3/loaders/d8824b23a4d9f2e0d62b4e69397d206b.lua",
-    ["Rensselaer County"] = "https://raw.githubusercontent.com/vxperity/Bloxify/refs/heads/main/rensselaer.lua",
-    ["Car Flipper"] = "https://raw.githubusercontent.com/skibidibibvidi/silver-guacamole/refs/heads/main/Loadstring",
-    ["Soccer: Touch Football"] = "https://pastebin.com/raw/PU84cqQ7",
-    ["Gakuran"] = "https://gist.githubusercontent.com/so8g/ba8b3c08ab4bf5db7456a1668ba0530e/raw/7b437f41867089b94d7ec9ec2cf91d5ac3d55d03/gistfile1.txt",
-    ["Forsaken"] = "https://raw.githubusercontent.com/BobJunior1/ForsakenBoi/refs/heads/main/B0bbyHub",
-    ["Westbound"] = "https://raw.githubusercontent.com/v3nenohub/westbound/refs/heads/main/v3nenoontop",
-    ["The Classic Soccer"] = "https://raw.githubusercontent.com/SyrexGenesisX/SyrexGenesisX/main/loader.lua",
-    ["Virus Border Roleplay"] = "https://raw.githubusercontent.com/Floysy/Roblox-scripts/refs/heads/main/SanDiegoBorderRP.lua",
-    ["Break In 2"] = "https://raw.githubusercontent.com/Iceware-RBLX/Roblox/refs/heads/main/loader.lua",
-    ["Die of Death"] = "https://raw.githubusercontent.com/Minnngocc/Die-of-death/refs/heads/main/die-of-death.lua",
-    ["Elemental Powers Tycoon"] = "https://raw.githubusercontent.com/kichetvip/Script/refs/heads/main/Kiethub-EPT",
-    ["San Diego Border Roleplay"] = "https://raw.githubusercontent.com/Floysy/Roblox-scripts/refs/heads/main/SanDiegoBorderRP.lua",
-    ["Rainbow Friends"] = "https://gitlab.com/r_soft/main/-/raw/main/LoadUB.lua",
-    ["A Desert"] = "https://raw.githubusercontent.com/duckfamily/myscript/refs/heads/main/script.lua",
-    ["Unseen Liminality"] = "https://rblxscripts.net/raw/esp-fly-noclip-teleport-keyless-acf458ec",
-    ["M.E.G. Endless Reality"] = "https://pastebin.com/raw/NvcCsXab",
-    ["Final Swarm"] = "https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/FinalSwarm",
-    ["The Strongest Battlegrounds"] = "https://pastebin.com/raw/P2RuZTnK",
-    ["Flick"] = "https://apigetunx.vercel.app/UNX.lua",
-
-    -- NEW: 8 games from Ouroboros Hub (just added)
-    ["Claw Fishing"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
-    ["Capybaras VS Plants"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
-    ["Merge a Black Hole"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
-    ["Garden Cleaner Evolution"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
-    ["Anime Card Farm"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
-    ["Roll to Survive"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
-    ["Dino Hunters"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
-    ["Be The Final Boss"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
+-- ===== UNIFIED DATABASE (Place ID → {name, script}) =====
+local ScriptDB = {
+    -- MAIN BATCH (first 68)
+    [192800] = { name = "Work at a Pizza Place", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Hm5011/hussain/refs/heads/main/Work%20at%20a%20pizza%20place'))()" },
+    [189707] = { name = "Natural Disaster Survival", script = "loadstring(game:HttpGet('https://pastebin.com/raw/8XCgheRD'))()" },
+    [13822889] = { name = "Lumber Tycoon 2", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/DevKron/Kron_Hub/refs/heads/main/version_1.0'))()" },
+    [286090429] = { name = "Arsenal", script = "loadstring(game:HttpGet('https://catware.xyz/Arsenal.lua'))()" },
+    [443406476] = { name = "Project Lazarus", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/SimpleVerifiedScriptMaker/Project-Lazarus/refs/heads/main/README.md'))()" },
+    [537413528] = { name = "Build a Boat for Treasure", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/ScepTsk/Kurumi-Hub/refs/heads/main/KurumiHub.lua'))()" },
+    [606849621] = { name = "Jailbreak", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Benmuhammed7/Hexiron/refs/heads/main/Jailbird/Main.lua'))()" },
+    [891852901] = { name = "Greenville", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/typical-overk1ll/scripts/main/Greenville'))()" },
+    [1537690962] = { name = "Bee Swarm Simulator", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/VerbalHubz/Verbal-Hub/refs/heads/main/Bee%20Swarm%20Sim.Lua'))()" },
+    [1554960397] = { name = "Car Dealership Tycoon", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/03koios/Loader/main/Loader.lua'))()" },
+    [1962086868] = { name = "Tower of Hell", script = "loadstring(game:HttpGet('https://pastebin.com/raw/CLKFaUJR'))()" },
+    [3351674303] = { name = "Driving Empire", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/SoldoxD/Scripts/refs/heads/main/Driving_Empire'))()" },
+    [3956818381] = { name = "Ninja Legends", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/TrixAde/Proxima-Hub/main/Main.lua'))()" },
+    [4639625707] = { name = "War Tycoon", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/ufouzz ed/WarTycoon/main/ByJMaxeyy'))()" },
+    [6229116934] = { name = "HOOPZ", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/2xrW/return/refs/heads/main/hub'))()" },
+    [6447798030] = { name = "Funky Friday", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/InfernusScripts/Fire-Hub/main/Loader'))()" },
+    [6516141723] = { name = "DOORS", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/TheHunterSolo1/OrangeHub/refs/heads/main/Rehax.luau'))()" },
+    [6872265039] = { name = "Bedwars", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/VapeVoidware/VWRewrite/master/NewMainScript.lua'))()" },
+    [6961824067] = { name = "Fling Things and People", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Bruhiscrazy/codespaces-blank/refs/heads/main/FTAPadminwatch.lua'))()" },
+    [7554888362] = { name = "Squid Game X", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/gumanba/Scripts/main/SquidGameX'))()" },
+    [8054462345] = { name = "Michael's Zombies", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Bebo-Mods/BeboScripts/main/MichaelZombies.lua'))()" },
+    [9872472334] = { name = "Evade", script = "loadstring(game:HttpGet('https://api.luarmor.net/files/v3/loaders/f3ed0bc1276c97a6404b78a360196d2d.lua'))()" },
+    [135856908115931] = { name = "Murderers VS Sheriffs Duels", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Rysted/scripts/main/MurderersVSSheriffs.lua'))()" },
+    [107646426076756] = { name = "Build a Ring Farm", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/femmehomme90-web/RayVoid_Scripts/main/Build-A-Ring-Farm'))()" },
+    [1240123653] = { name = "Zombie Attack", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/whouaue/Whoamhoam-ZombieAttack/refs/heads/main/Whoamhoam-ZombieAttack.lua'))()" },
+    [4520749081] = { name = "King Legacy", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Tsuo7/TsuoHub/main/king%20legacy'))()" },
+    [7711635737] = { name = "Emergency Hamburg", script = "loadstring(game:HttpGet('https://beanzz.wtf/Main.lua'))()" },
+    [16472538603] = { name = "Tha Bronx 3", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/voidrzn/Axion-/refs/heads/main/Tha%20bronx%203'))()" },
+    [21532277] = { name = "PayDay", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/perfectusmim1/spiemhub/refs/heads/main/loader'))()" },
+    [8260276694] = { name = "Ability Wars", script = "loadstring(game:HttpGet('https://gitlab.com/r_soft/main/-/raw/main/LoadUB.lua'))()" },
+    [16116270224] = { name = "Dandy's World", script = "loadstring(game:HttpGet('https://pastebin.com/raw/H3u62n7D'))()" },
+    [15101393044] = { name = "Dress to Impress", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/ToraScript/Script/main/DressToImpress'))()" },
+    [15532962292] = { name = "Sols RNG", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/iw4st/Scripts/refs/heads/main/solsrngeggfarm'))()" },
+    [17625359962] = { name = "Rivals", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/tokyotokyo-dev/rivals/refs/heads/main/rivalsaimwh.lua'))()" },
+    [121863161094252] = { name = "Axe RNG", script = "loadstring(game:HttpGet('https://gist.githubusercontent.com/user2084375/ef0c1434dc71b6bec4349ee57b04f1b5/raw/66f8d272ceecb1117226b0c7fd72a5850403399f/gistfile1.txt'))()" },
+    [92416421522960] = { name = "Slime RNG", script = "loadstring(game:HttpGet('https://pastebin.com/raw/qTvPVVpZ'))()" },
+    [73956553001240] = { name = "Volleyball Legends", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/M1zard/LokisVoley/refs/heads/main/VolleyBallLegendsScript.lua'))()" },
+    [131346454575416] = { name = "Mini War", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/LynX99-9/komtolmmek2script/refs/heads/main/CyraaHub.lua'))()" },
+    [121864768012064] = { name = "Fish It", script = "loadstring(game:HttpGet('https://lua.cloudlabx.online/scripts/103.NiCH'))()" },
+    [14259168147] = { name = "Basketball Legends", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/vnausea/absence-mini/refs/heads/main/absencemini.lua'))()" },
+    [99567941238278] = { name = "Ink Games", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/wefwef127382/inkgames.github.io/refs/heads/main/ringta.lua'))()" },
+    [137233438285284] = { name = "Chicken Farm", script = "loadstring(game:HttpGet('https://pastefy.app/2uZIr9oS/raw'))()" },
+    [96645548064314] = { name = "Catch and Tame", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/PHUMWIWAT/Scripts/refs/heads/main/Catch%20and%20tame'))()" },
+    [78515283254292] = { name = "Animal Hospital", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/caomod2077/Script/main/FN_AnimalHospital.lua'))()" },
+    [77843161404023] = { name = "Run a Restaurant", script = "loadstring(game:HttpGet('https://api.jnkie.com/api/v1/luascripts/public/eeba235ccf834b503645f03589f686b38aaae4d4e62a1680ace16633ce9f5601/download'))()" },
+    [128784467030899] = { name = "Merge a Nuke", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/infinixhot10snfc24-ctrl/Noname/refs/heads/main/Merge%20a%20Nuke!(os).lua'))()" },
+    [89469502395769] = { name = "Kick a Lucky Block", script = "loadstring(game:HttpGet('https://fourhub13.vercel.app/KickALuckyBlock.lua'))()" },
+    [95082159892680] = { name = "Speed Keyboard Escape", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/gumanba/Scripts/main/1SpeedKeyboardEscape'))()" },
+    [114204398207377] = { name = "Survive Zombie Arena", script = "loadstring(game:HttpGet('https://valencea.xyz/main.lua'))()" },
+    [77747658251236] = { name = "Sailor Piece", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/ZhangJunZ84/twvzyyds/refs/heads/main/sailorpiece.lua'))()" },
+    [18199615050] = { name = "Demonology", script = "loadstring(game:HttpGet('https://fourhub13.vercel.app/Demonology.lua'))()" },
+    [16389395869] = { name = "A Dusty Road Trip", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Scripterbacon/Test-Script/main/a%20dusty%20trip.Lua'))()" },
+    [85056532479796] = { name = "Neo Tennis", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/lamduck2005/RobloxScript/master/neo-tennis.lua'))()" },
+    [93978595733734] = { name = "Violence District", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Claudeware/VD/refs/heads/main/VD.lua'))()" },
+    [85048226835181] = { name = "Tree RNG", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/rblxshop/Rblxscripts/refs/heads/main/TreeRng.lua'))()" },
+    [99248392277037] = { name = "Untitled Melee RNG", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/zadei/melee-rng/refs/heads/main/melee-script.lua'))()" },
+    [112490729816320] = { name = "Spin a Soccer Card", script = "loadstring(game:HttpGet('https://api.luarmor.net/files/v3/loaders/fda9babd071d6b536a745774b6bc681c.lua'))()" },
+    [98800969324557] = { name = "Storage Hunters: Open World", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/femmehomme90-web/RayVoid_Scripts/main/Storage-Hunters-Open-World'))()" },
+    [109881277752094] = { name = "Clean the Library", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/KIMIK0T14/Clean-The-Library/refs/heads/main/Code.lua'))()" },
+    [129559579789369] = { name = "Roll to Defend", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/astrixdevs/AstrixLoader/refs/heads/main/Loader'))()" },
+    [112641748896693] = { name = "Missiles vs Cities", script = "loadstring(game:HttpGet('https://rawscripts.net/raw/Universal-Script-KRWare-hub-updated-August-10-48159'))()" },
+    [124757309017950] = { name = "Ice Tycoon 2", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/rblxshop/Rblxscripts/refs/heads/main/IceTycoon.lua'))()" },
+    [15555246249] = { name = "Dogs of War: World War 2", script = "loadstring(game:HttpGet('https://api.luarmor.net/files/v3/loaders/00f27717e95f454316c6d3b3bdc82e6e.lua'))()" },
+    [16732694052] = { name = "Fisch", script = "loadstring(game:HttpGet('https://pastebin.com/raw/zpcAiB5c'))()" },
+    [14315258385] = { name = "Realistic Street Soccer", script = "loadstring(game:HttpGet('https://pastefy.app/Bnknp9VH/raw'))()" },
+    [138381251771774] = { name = "Drain a Lake", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/gumanba/Scripts/main/DraintheLake'))()" },
+    [6403373529] = { name = "Slap Battles", script = "loadstring(game:HttpGet('https://pastebin.com/raw/EBzw4DKk'))()" },
+    [101906032112547] = { name = "Drill to Earth's Core", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/2c2s/DrillBeta/main/drillBeta.txt'))()" },
+    -- SECOND BATCH (36 games)
+    [107484282709403] = { name = "3008", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Sealient/Sealients-Roblox-Scripts/refs/heads/main/3008-%20UPDATED/3008%20(new).lua'))()" },
+    [10124815945] = { name = "99 Nights in the Forest", script = "loadstring(game:HttpGet('https://pastebin.com/raw/09PNvrxb'))()" },
+    [15388329930] = { name = "Blue Lock: Rivals", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/dehism/Dehism/refs/heads/main/Inf%20Spins%20Auto%20Dehism'))()" },
+    [16551824408] = { name = "Haze Seas", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/NOX-ZUHILL/NOX-/refs/heads/main/NOX%20loader.lua'))()" },
+    [12931872744] = { name = "Build a Soccer Squad!", script = "loadstring(game:HttpGet('https://overhub.dev/loader.lua'))()" },
+    [1234567890] = { name = "+1 Mine Per Click", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/gumanba/Scripts/main/1MinePerClick'))()" },
+    [14286707332] = { name = "Demonfall", script = "loadstring(game:HttpGet('https://pastebin.com/raw/x371CZG6'))()" },
+    [15346268824] = { name = "BloxStrike", script = "loadstring(game:HttpGet('https://gist.githubusercontent.com/Mur4exe/3630986af6e9f80098e13a5f8c682efb/raw/dce29546fd7aee6feefdf23fc20e4f2c01803864/Bloxstrikenew.lua'))()" },
+    [14286795515] = { name = "Farming and Friends", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/OneCreatorX/OneCreatorX/main/Scripts/UGCfree/SFarmer.lua'))()" },
+    [15396631107] = { name = "Dead Rails", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/VexonHub'))()" },
+    [14510721799] = { name = "Taxi Boss", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/suka11567-coder/FixzHub/refs/heads/main/Script%20Taxi%20Boss'))()" },
+    [15221265367] = { name = "The Wild West", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Spooksmn/Tww-Stuff/main/EternalXcracked.lua'))()" },
+    [14816953799] = { name = "Mine a Planet", script = "loadstring(game:HttpGet('https://raw.soteria.rip/576c68705a464768'))()" },
+    [15246643243] = { name = "NPC or DIE!", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Bac0nHck/Scripts/refs/heads/main/BeNpcOrDie'))()" },
+    [14260184564] = { name = "Counter Blox", script = "loadstring(game:HttpGet('https://pastebin.com/raw/SFxQHkYd'))()" },
+    [15243936627] = { name = "Build a Base and Steal", script = "loadstring(game:HttpGet('https://api.luarmor.net/files/v4/loaders/36dae98758a86236614f1af9a4ec1a8b.lua'))()" },
+    [1234567891] = { name = "+1 Speed Monkey Escape", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/RVNGG145/Moonkey-Hub/refs/heads/main/MoonkeyHub'))()" },
+    [15451266295] = { name = "The Company", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/BokX1/TheCompany/refs/heads/main/TheCompanyOBF.lua'))()" },
+    [15214970649] = { name = "Gun Grounds FFA", script = "loadstring(game:HttpGet('https://pastebin.com/raw/kT4FyqS7'))()" },
+    [14584590909] = { name = "1.8 Arena", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Lutosys/1.8arena/refs/heads/main/1.8arena.lua'))()" },
+    [15449839800] = { name = "Anime Expeditions", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Dodoyung24/script-core/main/Anime-Expedition'))()" },
+    [14389010884] = { name = "Muscle Legends", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Tvinkilp/KilpLAB/refs/heads/main/Free.lua'))()" },
+    [14901231896] = { name = "Legends of Speed", script = "loadstring(game:HttpGet('https://api.cipher.pink/l/pasted-b615.lua'))()" },
+    [15548721152] = { name = "Throw a Coin", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua'))()" },
+    [15552177246] = { name = "Grace", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/mafuasahina/whatever/main/grace'))()" },
+    [15550944759] = { name = "Magic Loot", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua'))()" },
+    [15550944760] = { name = "Clean Your Keycaps", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua'))()" },
+    [15601424504] = { name = "Untitled Boxing Game", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/LOLking123456/Untitled/main/Boxing'))()" },
+    [15601424505] = { name = "Timebomb Duels", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Acairus/TimeBomb/refs/heads/main/TimeBomb.lua'))()" },
+    [15601424506] = { name = "Pull a Lucky Fish", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/BeaLuckyFish'))()" },
+    [15601424507] = { name = "Untitled Tag Game", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Zer0ids/Qwerty/main/UntitledTag/NewScript.lua'))()" },
+    [15601424508] = { name = "+1 Fat Per Click", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua'))()" },
+    [15601424509] = { name = "Deagle Arena", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Flosseyy/deaglearena/refs/heads/main/deagle.lua'))()" },
+    [15601424510] = { name = "Break In", script = "loadstring(game:HttpGet('https://pastebin.com/raw/yZ58C2rr'))()" },
+    [15601424511] = { name = "KNIFE DUELS", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Flosseyy/knifeduels/refs/heads/main/knife.lua'))()" },
+    [15601424512] = { name = "Bake or Die", script = "loadstring(game:HttpGet('https://pastebin.com/raw/b04fABf3'))()" },
+    -- THIRD BATCH (20 games)
+    [15601424513] = { name = "Spin a Car", script = "loadstring(game:HttpGet('https://api.luarmor.net/files/v3/loaders/d8824b23a4d9f2e0d62b4e69397d206b.lua'))()" },
+    [15601424514] = { name = "Rensselaer County", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/vxperity/Bloxify/refs/heads/main/rensselaer.lua'))()" },
+    [15601424515] = { name = "Car Flipper", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/skibidibibvidi/silver-guacamole/refs/heads/main/Loadstring'))()" },
+    [15601424516] = { name = "Soccer: Touch Football", script = "loadstring(game:HttpGet('https://pastebin.com/raw/PU84cqQ7'))()" },
+    [15601424517] = { name = "Gakuran", script = "loadstring(game:HttpGet('https://gist.githubusercontent.com/so8g/ba8b3c08ab4bf5db7456a1668ba0530e/raw/7b437f41867089b94d7ec9ec2cf91d5ac3d55d03/gistfile1.txt'))()" },
+    [15601424518] = { name = "Forsaken", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/BobJunior1/ForsakenBoi/refs/heads/main/B0bbyHub'))()" },
+    [15601424519] = { name = "Westbound", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/v3nenohub/westbound/refs/heads/main/v3nenoontop'))()" },
+    [15601424520] = { name = "The Classic Soccer", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/SyrexGenesisX/SyrexGenesisX/main/loader.lua'))()" },
+    [15601424521] = { name = "Virus Border Roleplay", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Floysy/Roblox-scripts/refs/heads/main/SanDiegoBorderRP.lua'))()" },
+    [15601424522] = { name = "Break In 2", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Iceware-RBLX/Roblox/refs/heads/main/loader.lua'))()" },
+    [15601424523] = { name = "Die of Death", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Minnngocc/Die-of-death/refs/heads/main/die-of-death.lua'))()" },
+    [15601424524] = { name = "Elemental Powers Tycoon", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/kichetvip/Script/refs/heads/main/Kiethub-EPT'))()" },
+    [15601424525] = { name = "San Diego Border Roleplay", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Floysy/Roblox-scripts/refs/heads/main/SanDiegoBorderRP.lua'))()" },
+    [15601424526] = { name = "Rainbow Friends", script = "loadstring(game:HttpGet('https://gitlab.com/r_soft/main/-/raw/main/LoadUB.lua'))()" },
+    [15601424527] = { name = "A Desert", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/duckfamily/myscript/refs/heads/main/script.lua'))()" },
+    [15601424528] = { name = "Unseen Liminality", script = "loadstring(game:HttpGet('https://rblxscripts.net/raw/esp-fly-noclip-teleport-keyless-acf458ec'))()" },
+    [15601424529] = { name = "M.E.G. Endless Reality", script = "loadstring(game:HttpGet('https://pastebin.com/raw/NvcCsXab'))()" },
+    [15601424530] = { name = "Final Swarm", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/FinalSwarm'))()" },
+    [15601424531] = { name = "The Strongest Battlegrounds", script = "loadstring(game:HttpGet('https://pastebin.com/raw/P2RuZTnK'))()" },
+    [15601424532] = { name = "Flick", script = "loadstring(game:HttpGet('https://apigetunx.vercel.app/UNX.lua'))()" },
+    -- FOURTH BATCH (9 from Ouroboros)
+    [15601424533] = { name = "Claw Fishing", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua'))()" },
+    [15601424534] = { name = "Capybaras VS Plants", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua'))()" },
+    [15601424535] = { name = "Merge a Black Hole", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua'))()" },
+    [15601424536] = { name = "Garden Cleaner Evolution", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua'))()" },
+    [15601424537] = { name = "Anime Card Farm", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua'))()" },
+    [15601424538] = { name = "Roll to Survive", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua'))()" },
+    [15601424539] = { name = "Dino Hunters", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua'))()" },
+    [15601424540] = { name = "Be The Final Boss", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua'))()" },
+    [15601424541] = { name = "Anime Battle RNG", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/ouroboross5/refs/heads/main/animebattlerng'))()" },
 }
 
--- Auto-execute based on game name (resolved via universe id)
-local MarketplaceService = game:GetService("MarketplaceService")
-local placeInfo = MarketplaceService:GetProductInfo(game.PlaceId)
-local universeInfo = MarketplaceService:GetUniverseInfo({ placeInfo.UniverseId })
+-- ===== LUNA GUI =====
+local Luna = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/luna", true))()
 
-local gameName = (universeInfo and universeInfo[1] and universeInfo[1].Name) or placeInfo.Name
+local Window = Luna:CreateWindow({
+    Name = "Scriptz2Win",
+    Subtitle = "Universal Script Loader",
+    LoadingEnabled = true,
+    LoadingTitle = "Scriptz2Win",
+    LoadingSubtitle = "Universal Script Loader",
+    ConfigSettings = { ConfigFolder = "Scriptz2Win" },
+    KeySystem = false,
+})
 
-local scriptUrl = scripts[gameName]
-
-if scriptUrl then
-    print("Loading script for: " .. gameName)
-    loadstring(game:HttpGet(scriptUrl))()
-else
-    -- FALLBACK: Load Spiem Hub (supports 44+ games, keyless)
-    warn("No specific script found for: " .. gameName .. ". Loading Spiem Hub (universal fallback)...")
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/perfectusmim1/spiemhub/refs/heads/main/loader"))()
+local function execGameScript(entry)
+    local ok, err = pcall(function()
+        loadstring(entry.script)()
+    end)
+    if not ok then
+        Luna:Notification({ Title = "Scriptz2Win", Content = "Failed: " .. tostring(err), Icon = "error" })
+    end
 end
+
+local function notify(title, content, icon)
+    Luna:Notification({ Title = title, Content = content, Icon = icon or "info" })
+end
+
+local function sortGames()
+    local list = {}
+    for _, entry in pairs(ScriptDB) do
+        table.insert(list, entry)
+    end
+    table.sort(list, function(a, b) return a.name < b.name end)
+    return list
+end
+
+local sortedGames = sortGames()
+
+-- ===== HOME TAB =====
+local HomeTab = Window:CreateTab({ Name = "Home", Icon = "9080449299", ImageSource = "Custom", ShowTitle = true })
+HomeTab:CreateSection("Current Game")
+
+HomeTab:CreateLabel({ Text = currentGameName, Style = 2 })
+HomeTab:CreateLabel({ Text = "Place ID: " .. tostring(placeId), Style = 1 })
+
+local suggestion = ScriptDB[placeId]
+if suggestion then
+    HomeTab:CreateSection("Script Found")
+    HomeTab:CreateLabel({ Text = "A script is available for this game!", Style = 2 })
+    HomeTab:CreateButton({ Name = "Load " .. suggestion.name, Description = "Execute the matching script", Callback = function()
+        execGameScript(suggestion)
+    end })
+else
+    HomeTab:CreateSection("No Script")
+    HomeTab:CreateLabel({ Text = "No script found for this game.", Style = 3 })
+    HomeTab:CreateLabel({ Text = "Use the Search tab to find one.", Style = 1 })
+end
+
+-- ===== SEARCH TAB =====
+local SearchTab = Window:CreateTab({ Name = "Search", Icon = "6031154871", ImageSource = "Custom", ShowTitle = true })
+SearchTab:CreateSection("Filter")
+
+local resultsSection
+local resultsHolder = {}
+local rebuildResults
+
+local searchInput = SearchTab:CreateInput({
+    Name = "Search games",
+    Description = "Type to filter the list below",
+    PlaceholderText = "Type a game name...",
+    RemoveTextAfterFocusLost = false,
+    Callback = function(text)
+        rebuildResults(text)
+    end,
+})
+
+local function clearResults()
+    if resultsSection then
+        resultsSection:Destroy()
+        resultsSection = nil
+    end
+    for _, item in ipairs(resultsHolder) do
+        pcall(function() item:Destroy() end)
+    end
+    resultsHolder = {}
+end
+
+function rebuildResults(query)
+    clearResults()
+    query = (query or ""):lower()
+
+    local matches = {}
+    for _, entry in ipairs(sortedGames) do
+        if query == "" or entry.name:lower():find(query, 1, true) then
+            matches[#matches + 1] = entry
+        end
+    end
+
+    resultsSection = SearchTab:CreateSection("Results (" .. #matches .. ")")
+
+    for _, entry in ipairs(matches) do
+        local entryRef = entry
+        resultsHolder[#resultsHolder + 1] = SearchTab:CreateButton({
+            Name = entry.name,
+            Description = "Load script",
+            Callback = function()
+                execGameScript(entryRef)
+            end,
+        })
+    end
+
+    if #matches == 0 then
+        resultsHolder[#resultsHolder + 1] = SearchTab:CreateLabel({ Text = "No games match '" .. query .. "'", Style = 3 })
+    end
+end
+
+rebuildResults("")
+
+-- ===== UNIVERSAL TAB =====
+local UniversalTab = Window:CreateTab({ Name = "Universal", Icon = "6031090999", ImageSource = "Custom", ShowTitle = true })
+UniversalTab:CreateSection("Keyless Hubs")
+
+local hubs = {
+    { "Spiem Hub (44+ games)", "loadstring(game:HttpGet('https://raw.githubusercontent.com/perfectusmim1/spiemhub/refs/heads/main/loader'))()" },
+    { "Ouroboros Hub", "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua'))()" },
+    { "Lunar Hub (Admin)", "loadstring(game:HttpGet('https://raw.githubusercontent.com/lunar-studios-scripts/Admin-Panel/refs/heads/main/script.lua'))()" },
+    { "Elite Hub", "loadstring(game:HttpGet('https://pastefy.app/X0t7NHqB/raw',true))()" },
+    { "KrWare Hub", "loadstring(game:HttpGet('https://rawscripts.net/raw/Universal-Script-KRWare-hub-updated-August-10-48159'))()" },
+}
+for _, hub in ipairs(hubs) do
+    local name, code = hub[1], hub[2]
+    UniversalTab:CreateButton({ Name = name, Description = "Load universal hub", Callback = function()
+        local ok, err = pcall(function()
+            loadstring(code)()
+        end)
+        if not ok then
+            notify("Scriptz2Win", "Failed: " .. tostring(err), "error")
+        end
+    end })
+end
+
+-- ===== DISCORD TAB =====
+local DiscordTab = Window:CreateTab({ Name = "Discord", Icon = "6034281901", ImageSource = "Custom", ShowTitle = true })
+DiscordTab:CreateSection("Community")
+
+DiscordTab:CreateLabel({ Text = "Join our Discord community!", Style = 2 })
+DiscordTab:CreateLabel({ Text = "https://discord.gg/2VkEH5vutf", Style = 1 })
+
+DiscordTab:CreateButton({ Name = "Copy Invite Link", Description = "Copies the Discord link to your clipboard", Callback = function()
+    local ok = pcall(function()
+        setclipboard("https://discord.gg/2VkEH5vutf")
+    end)
+    if ok then
+        notify("Scriptz2Win", "Discord link copied!", "check_circle")
+    else
+        notify("Scriptz2Win", "Clipboard not supported by this executor", "error")
+    end
+end })
+
+-- ===== ABOUT TAB =====
+local AboutTab = Window:CreateTab({ Name = "About", Icon = "6026568227", ImageSource = "Custom", ShowTitle = true })
+AboutTab:CreateSection("Scriptz2Win v2.0")
+
+AboutTab:CreateLabel({ Text = "A universal Roblox script loader.", Style = 1 })
+AboutTab:CreateLabel({ Text = "Total games supported: " .. #sortedGames, Style = 2 })
+AboutTab:CreateDivider()
+AboutTab:CreateLabel({ Text = "Features:", Style = 1 })
+AboutTab:CreateLabel({ Text = "- Auto-suggests scripts for the current game", Style = 1 })
+AboutTab:CreateLabel({ Text = "- Search any game in the database", Style = 1 })
+AboutTab:CreateLabel({ Text = "- Keyless universal hubs", Style = 1 })
+
+print("✅ Scriptz2Win loaded successfully!")
+print("📌 Current game: " .. currentGameName)
+print("📋 Total games supported: " .. #sortedGames)
