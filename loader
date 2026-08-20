@@ -111,7 +111,7 @@ local scripts = {
     ["KNIFE DUELS"] = "https://raw.githubusercontent.com/Flosseyy/knifeduels/refs/heads/main/knife.lua",
     ["Bake or Die"] = "https://pastebin.com/raw/b04fABf3",
 
-    -- Newly added entries (46 games)
+    -- Third batch (20 games)
     ["Spin a Car"] = "https://api.luarmor.net/files/v3/loaders/d8824b23a4d9f2e0d62b4e69397d206b.lua",
     ["Rensselaer County"] = "https://raw.githubusercontent.com/vxperity/Bloxify/refs/heads/main/rensselaer.lua",
     ["Car Flipper"] = "https://raw.githubusercontent.com/skibidibibvidi/silver-guacamole/refs/heads/main/Loadstring",
@@ -132,6 +132,16 @@ local scripts = {
     ["Final Swarm"] = "https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/FinalSwarm",
     ["The Strongest Battlegrounds"] = "https://pastebin.com/raw/P2RuZTnK",
     ["Flick"] = "https://apigetunx.vercel.app/UNX.lua",
+
+    -- NEW: 8 games from Ouroboros Hub (just added)
+    ["Claw Fishing"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
+    ["Capybaras VS Plants"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
+    ["Merge a Black Hole"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
+    ["Garden Cleaner Evolution"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
+    ["Anime Card Farm"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
+    ["Roll to Survive"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
+    ["Dino Hunters"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
+    ["Be The Final Boss"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
 }
 
 -- Auto-execute based on game name
