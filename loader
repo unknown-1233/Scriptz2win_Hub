@@ -112,26 +112,26 @@ local scripts = {
     ["Bake or Die"] = "https://pastebin.com/raw/b04fABf3",
 
     -- Newly added entries (46 games)
-    ["Spin a Car"] = "https://api.luarmor.net/files/v3/loaders/d8824b23a4d9f2e0d62b4e69397d206b.lua", -- From BlockSpin script[reference:0]
-    ["Rensselaer County"] = "https://raw.githubusercontent.com/vxperity/Bloxify/refs/heads/main/rensselaer.lua", -- Bloxify Hub[reference:1]
-    ["Car Flipper"] = "https://raw.githubusercontent.com/skibidibibvidi/silver-guacamole/refs/heads/main/Loadstring", -- LARPWARE Hub[reference:2]
-    ["Soccer: Touch Football"] = "https://pastebin.com/raw/PU84cqQ7", -- Ball Predictor Script[reference:3]
-    ["Gakuran"] = "https://gist.githubusercontent.com/so8g/ba8b3c08ab4bf5db7456a1668ba0530e/raw/7b437f41867089b94d7ec9ec2cf91d5ac3d55d03/gistfile1.txt", -- Auto Parry script[reference:4]
-    ["Forsaken"] = "https://raw.githubusercontent.com/BobJunior1/ForsakenBoi/refs/heads/main/B0bbyHub", -- Bobby Hub[reference:5]
-    ["Westbound"] = "https://raw.githubusercontent.com/v3nenohub/westbound/refs/heads/main/v3nenoontop", -- V3neno Hub[reference:6]
-    ["The Classic Soccer"] = "https://raw.githubusercontent.com/SyrexGenesisX/SyrexGenesisX/main/loader.lua", -- Best universal soccer script[reference:7]
-    ["Virus Border Roleplay"] = "https://raw.githubusercontent.com/Floysy/Roblox-scripts/refs/heads/main/SanDiegoBorderRP.lua", -- PHANTOM HUB[reference:8]
-    ["Break In 2"] = "https://raw.githubusercontent.com/Iceware-RBLX/Roblox/refs/heads/main/loader.lua", -- Iceware loader[reference:9]
-    ["Die of Death"] = "https://raw.githubusercontent.com/Minnngocc/Die-of-death/refs/heads/main/die-of-death.lua", -- Rayfield Hub[reference:10]
-    ["Elemental Powers Tycoon"] = "https://raw.githubusercontent.com/kichetvip/Script/refs/heads/main/Kiethub-EPT", -- Kiet Hub[reference:11]
-    ["San Diego Border Roleplay"] = "https://raw.githubusercontent.com/Floysy/Roblox-scripts/refs/heads/main/SanDiegoBorderRP.lua", -- PHANTOM HUB[reference:12]
-    ["Rainbow Friends"] = "https://gitlab.com/r_soft/main/-/raw/main/LoadUB.lua", -- Universal loader[reference:13]
-    ["A Desert"] = "https://raw.githubusercontent.com/duckfamily/myscript/refs/heads/main/script.lua", -- Pizdoliz Hub[reference:14]
-    ["Unseen Liminality"] = "https://rblxscripts.net/raw/esp-fly-noclip-teleport-keyless-acf458ec", -- OP No Keys script[reference:15]
-    ["M.E.G. Endless Reality"] = "https://pastebin.com/raw/NvcCsXab", -- Keyless OP 2026[reference:16]
-    ["Final Swarm"] = "https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/FinalSwarm", -- Tora Isme script[reference:17]
-    ["The Strongest Battlegrounds"] = "https://pastebin.com/raw/P2RuZTnK", -- TSB Script Hub[reference:18]
-    ["Flick"] = "https://apigetunx.vercel.app/UNX.lua", -- UNX Hub[reference:19]
+    ["Spin a Car"] = "https://api.luarmor.net/files/v3/loaders/d8824b23a4d9f2e0d62b4e69397d206b.lua",
+    ["Rensselaer County"] = "https://raw.githubusercontent.com/vxperity/Bloxify/refs/heads/main/rensselaer.lua",
+    ["Car Flipper"] = "https://raw.githubusercontent.com/skibidibibvidi/silver-guacamole/refs/heads/main/Loadstring",
+    ["Soccer: Touch Football"] = "https://pastebin.com/raw/PU84cqQ7",
+    ["Gakuran"] = "https://gist.githubusercontent.com/so8g/ba8b3c08ab4bf5db7456a1668ba0530e/raw/7b437f41867089b94d7ec9ec2cf91d5ac3d55d03/gistfile1.txt",
+    ["Forsaken"] = "https://raw.githubusercontent.com/BobJunior1/ForsakenBoi/refs/heads/main/B0bbyHub",
+    ["Westbound"] = "https://raw.githubusercontent.com/v3nenohub/westbound/refs/heads/main/v3nenoontop",
+    ["The Classic Soccer"] = "https://raw.githubusercontent.com/SyrexGenesisX/SyrexGenesisX/main/loader.lua",
+    ["Virus Border Roleplay"] = "https://raw.githubusercontent.com/Floysy/Roblox-scripts/refs/heads/main/SanDiegoBorderRP.lua",
+    ["Break In 2"] = "https://raw.githubusercontent.com/Iceware-RBLX/Roblox/refs/heads/main/loader.lua",
+    ["Die of Death"] = "https://raw.githubusercontent.com/Minnngocc/Die-of-death/refs/heads/main/die-of-death.lua",
+    ["Elemental Powers Tycoon"] = "https://raw.githubusercontent.com/kichetvip/Script/refs/heads/main/Kiethub-EPT",
+    ["San Diego Border Roleplay"] = "https://raw.githubusercontent.com/Floysy/Roblox-scripts/refs/heads/main/SanDiegoBorderRP.lua",
+    ["Rainbow Friends"] = "https://gitlab.com/r_soft/main/-/raw/main/LoadUB.lua",
+    ["A Desert"] = "https://raw.githubusercontent.com/duckfamily/myscript/refs/heads/main/script.lua",
+    ["Unseen Liminality"] = "https://rblxscripts.net/raw/esp-fly-noclip-teleport-keyless-acf458ec",
+    ["M.E.G. Endless Reality"] = "https://pastebin.com/raw/NvcCsXab",
+    ["Final Swarm"] = "https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/FinalSwarm",
+    ["The Strongest Battlegrounds"] = "https://pastebin.com/raw/P2RuZTnK",
+    ["Flick"] = "https://apigetunx.vercel.app/UNX.lua",
 }
 
 -- Auto-execute based on game name
@@ -144,5 +144,7 @@ if scriptUrl then
     print("Loading script for: " .. gameName)
     loadstring(game:HttpGet(scriptUrl))()
 else
-    warn("No script found for game: " .. gameName)
+    -- FALLBACK: Load Spiem Hub (supports 44+ games, keyless)
+    warn("No specific script found for: " .. gameName .. ". Loading Spiem Hub (universal fallback)...")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/perfectusmim1/spiemhub/refs/heads/main/loader"))()
 end
