@@ -144,9 +144,12 @@ local scripts = {
     ["Be The Final Boss"] = "https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/loader.lua",
 }
 
--- Auto-execute based on game name
+-- Auto-execute based on game name (resolved via universe id)
 local MarketplaceService = game:GetService("MarketplaceService")
-local gameName = MarketplaceService:GetProductInfo(game.PlaceId).Name
+local placeInfo = MarketplaceService:GetProductInfo(game.PlaceId)
+local universeInfo = MarketplaceService:GetUniverseInfo({ placeInfo.UniverseId })
+
+local gameName = (universeInfo and universeInfo[1] and universeInfo[1].Name) or placeInfo.Name
 
 local scriptUrl = scripts[gameName]
 
