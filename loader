@@ -115,7 +115,7 @@ local ScriptDB = {
     [15601424510] = { name = "Break In", script = "loadstring(game:HttpGet('https://pastebin.com/raw/yZ58C2rr'))()" },
     [15601424511] = { name = "KNIFE DUELS", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Flosseyy/knifeduels/refs/heads/main/knife.lua'))()" },
     [15601424512] = { name = "Bake or Die", script = "loadstring(game:HttpGet('https://pastebin.com/raw/b04fABf3'))()" },
-    [121474715335865] = { name = "Jump to Steal Soccer Players", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/JumpToStealSoccerLegends', true))()" },
+    [133294838637120] = { name = "Jump to Steal Soccer Players", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/JumpToStealSoccerLegends', true))()" },
     -- THIRD BATCH (20 games)
     [15601424513] = { name = "Spin a Car", script = "loadstring(game:HttpGet('https://api.luarmor.net/files/v3/loaders/d8824b23a4d9f2e0d62b4e69397d206b.lua'))()" },
     [15601424514] = { name = "Rensselaer County", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/vxperity/Bloxify/refs/heads/main/rensselaer.lua'))()" },
@@ -152,7 +152,7 @@ local ScriptDB = {
 
 -- ===== PLACE ID DATABASE (confirmed Ouroboros, Place ID 171 -> {name, script}) =====
 local ScriptByPlaceId = {
-    [121474715335865] = { name = "Jump to Steal Soccer Players", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/JumpToStealSoccerLegends', true))()" },
+    [133294838637120] = { name = "Jump to Steal Soccer Players", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/JumpToStealSoccerLegends', true))()" },
     [101670277171204] = { name = "Automate Ares", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/games/automateares.lua'))()" },
     [79315121100812] = { name = "Make a Drill Farm", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/games/makeadrillfarm.lua'))()" },
     [117539213094671] = { name = "Roll a Gnome", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/games/rollagnome.lua'))()" },
@@ -431,7 +431,7 @@ local ScriptsByCreator = {
     [949197661] = { name = "Automate Ares", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/games/automateares.lua'))()" },
     [200275059] = { name = "Build Ore Farm", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/games/buildorefarm.lua'))()" },
     [943932821] = { name = "Poop an Ore Farm", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/games/poopanorefarm.lua'))()" },
-    [854390513] = { name = "Jump to Steal Slime", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/games/jumptostealslime.lua'))()" },
+    [854390513] = { name = "Jump to Steal Soccer Players", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/gumanba/Scripts/refs/heads/main/JumpToStealSoccerLegends', true))()" },
     [103466300] = { name = "Shrink Per Step", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/games/shrinkperstep.lua'))()" },
     [519201492] = { name = "Height Per Jump", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/games/heightperjump.lua'))()" },
     [35850353] = { name = "Merge Plants vs Mobs", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/games/mergeplantsvsmobs.lua'))()" },
