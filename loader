@@ -89,7 +89,7 @@ local ScriptDB = {
     [15346268824] = { name = "BloxStrike", script = "loadstring(game:HttpGet('https://gist.githubusercontent.com/Mur4exe/3630986af6e9f80098e13a5f8c682efb/raw/dce29546fd7aee6feefdf23fc20e4f2c01803864/Bloxstrikenew.lua'))()" },
     [14286795515] = { name = "Farming and Friends", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/OneCreatorX/OneCreatorX/main/Scripts/UGCfree/SFarmer.lua'))()" },
     [15396631107] = { name = "Dead Rails", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/VexonHub'))()" },
-    [14510721799] = { name = "Taxi Boss", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/suka11567-coder/FixzHub/refs/heads/main/Script%20Taxi%20Boss'))()" },
+    [7305309231] = { name = "Taxi Boss", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/glyphaj1/quacked.lol/main/taxiBossUnlimitedMoney.luau'))()" },
     [15221265367] = { name = "The Wild West", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Spooksmn/Tww-Stuff/main/EternalXcracked.lua'))()" },
     [14816953799] = { name = "Mine a Planet", script = "loadstring(game:HttpGet('https://raw.soteria.rip/576c68705a464768'))()" },
     [15246643243] = { name = "NPC or DIE!", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Bac0nHck/Scripts/refs/heads/main/BeNpcOrDie'))()" },
@@ -324,6 +324,7 @@ local ScriptByPlaceId = {
     [81549698024226] = { name = "Power Your City", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/games/poweryourcity.lua'))()" },
     [129441589031863] = { name = "Billionaire Zoo", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/games/billionairezoo.lua'))()" },
     [99468092262114] = { name = "Muscle Prison Break", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/games/muscleprisonbreak.lua'))()" },
+    [7305309231] = { name = "Taxi Boss", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/glyphaj1/quacked.lol/main/taxiBossUnlimitedMoney.luau'))()" },
 }
 -- ===== CREATOR DATABASE (Ouroboros, Creator ID → {name, script}) =====
 local ScriptsByCreator = {
@@ -511,6 +512,7 @@ local ScriptsByCreator = {
     [605521299] = { name = "Drill Blocks", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/games/drillblocks.lua'))()" },
     [5055349] = { name = "Cook and Sell", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/games/cookandsell.lua'))()" },
     [652521234] = { name = "Melt Ice", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/joustingmatch/Ouroboros/main/games/meltice.lua'))()" },
+    [11987919] = { name = "Taxi Boss", script = "loadstring(game:HttpGet('https://raw.githubusercontent.com/glyphaj1/quacked.lol/main/taxiBossUnlimitedMoney.luau'))()" },
 }
 
 -- ===== LUNA GUI =====
